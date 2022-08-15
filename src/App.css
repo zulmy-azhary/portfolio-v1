@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.flex-center {
+		@apply flex justify-center items-center;
+	}
+
+	.nav-item {
+		@apply text-blue-200 uppercase hover:text-teal-400 font-primary font-medium text-base md:text-xl tracking-widest px-10 py-3 md:p-0 cursor-pointer transition-all duration-300;
+	}
+
+	.header-1 {
+		@apply text-teal-400 font-primary font-semibold text-center lg:text-left text-2xl md:text-3xl lg:text-5xl mb-4;
+	}
+
+	.header-3 {
+		@apply text-slate-500 hover:text-blue-200 font-secondary font-bold text-center lg:text-left md:text-lg lg:text-xl -mt-2 mb-8 transition duration-300;
+	}
+
+	.button {
+		@apply text-teal-400 hover:text-primary-900 hover:bg-teal-400 font-primary lg:font-medium text-xs md:text-sm lg:text-base ring-2 ring-teal-400 hover:ring-0 px-3 py-2 rounded cursor-pointer transition-all duration-300;
+	}
+
+	.card {
+		/* background-color: #05052B; */
+		@apply bg-secondary-600 w-full min-h-fit rounded-lg px-7 md:px-16 lg:px-28 py-12 md:py-14 lg:py-24 mx-auto transition-all duration-300 relative z-10 overflow-hidden after:absolute after:-z-10 after:bg-secondary-800 after:border-l-2 after:border-indigo-900/70 after:-skew-x-[29.5deg] after:inset-y-0 after:w-full after:-right-1/2;
+		box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+	}
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@layer utilities {
+	* {
+		@apply focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-teal-400 focus-visible:outline-offset-4;
+	}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+	/* .active {
+		@apply text-primary-900 hover:text-blue-200 bg-teal-400 md:text-teal-400 md:bg-transparent;
+	} */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	::selection {
+		@apply bg-indigo-900/70 text-blue-200;
+	}
 }
