@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ToggleContext } from "../../context";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { Link } from "react-scroll";
-import { ReactComponent as Logo } from "../../assets/Logo.svg";
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { HamburgerMenu } from "../utils";
 import { navLink } from "../../utils/data";
 
