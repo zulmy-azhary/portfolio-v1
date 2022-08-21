@@ -8,7 +8,7 @@
 	}
 
 	.nav-item {
-		@apply text-blue-200 uppercase hover:text-teal-400 font-primary font-medium text-base md:text-xl tracking-widest px-10 py-3 md:p-0 cursor-pointer transition-all duration-300;
+		@apply text-blue-200 uppercase hover:text-teal-400 font-primary font-normal text-base md:text-lg lg:text-xl tracking-widest px-10 py-3 md:p-0 cursor-pointer transition-all duration-300;
 	}
 
 	.header-1 {
@@ -16,7 +16,7 @@
 	}
 
 	.header-3 {
-		@apply text-slate-500 hover:text-blue-200 font-secondary font-bold text-center lg:text-left md:text-lg lg:text-xl -mt-2 mb-8 transition duration-300;
+		@apply text-slate-500 font-secondary font-medium text-center lg:text-left md:text-lg lg:text-2xl -mt-2 mb-8 transition duration-300;
 	}
 
 	.button {
@@ -27,6 +27,10 @@
 		/* background-color: #05052B; */
 		@apply bg-secondary-600 w-full min-h-fit rounded-lg px-7 md:px-16 lg:px-28 py-12 md:py-14 lg:py-24 mx-auto transition-all duration-300 relative z-10 overflow-hidden after:absolute after:-z-10 after:bg-secondary-800 after:border-l-2 after:border-indigo-900/70 after:-skew-x-[29.5deg] after:inset-y-0 after:w-full after:-right-1/2;
 		box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+	}
+
+	.social-media-icon {
+		@apply text-3xl lg:text-4xl transition-all duration-500 cursor-pointer text-blue-200/50 hover:text-teal-400 hover:scale-125;
 	}
 }
 

@@ -7,7 +7,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	cursor: default;
-	@apply tracking-wider;
+	letter-spacing: 0.05em;
 }
 
 body {
@@ -21,10 +21,25 @@ body {
 
 ::-webkit-scrollbar {
 	width: 12px;
+	height: 12px;
 	background-color: var(--mainBackground);
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-teal-400 hover:bg-blue-200 border-4 border-solid border-transparent rounded-xl;
+	@apply bg-teal-400 hover:bg-blue-200;
+	border: 3px solid transparent;
+	border-radius: 0.75rem;
 	background-clip: padding-box;
+}
+
+/* Keyframes */
+@keyframes appear {
+	0% { 
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	100% { 
+		transform: translateY(0);
+		opacity: 1;
+	}
 }

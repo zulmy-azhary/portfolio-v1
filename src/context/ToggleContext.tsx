@@ -1,8 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useState } from 'react';
+import type { Props } from "../utils/types"
 
-type Props = {
-  children: React.ReactNode;
-}
 interface ToggleCtx {
   isOpen: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
