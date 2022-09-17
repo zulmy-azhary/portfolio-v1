@@ -1,26 +1,58 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
+import styled from "styled-components";
 import { ToggleContext } from "../../context";
+import type { ToggleCtx } from "../../types";
 
-type Props = {
+const Container = styled.div`
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 9999;
+  cursor: pointer;
+`;
+
+const Line = styled.div<Partial<ToggleCtx>>`
+  height: 2px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  background-color: rgb(var(--teal));
+`;
+
+const TopLine = styled(Line)`
+  transform-origin: top right;
+
+  transform: ${({ isOpen }) => isOpen && "rotate(-45deg) translateX(-1px)"};
+`;
+
+const CenterLine = styled(Line)`
+  transform: ${({ isOpen }) => isOpen && "translateX(20px)"};
+  opacity: ${({ isOpen }) => isOpen ? 0 : 1};
+`;
+
+const BottomLine = styled(Line)`
+  transform-origin: top right;
+
+  transform: ${({ isOpen }) => isOpen && "rotate(45deg) translateX(1px)"};
+`;
+
+interface Props {
   onClick: () => void,
 }
 
-const HamburgerMenu = ({ onClick }: Props) => {
+const HamburgerMenu: React.FC<Props> = ({ onClick }): JSX.Element => {
   const { isOpen } = useContext(ToggleContext);
 
   return (
-    <div onClick={onClick} className="w-6 h-6 flex flex-col gap-1 justify-evenly relative z-50 cursor-pointer">
-      <div style={{ 
-        transform: isOpen ? "rotate(-45deg) translateX(-1px)" : "none"
-       }} className="h-[2px] transition-all duration-300 bg-blue-200 origin-top-right" />
-      <div style={{ 
-        transform: isOpen ? "translateX(20px)" : "none",
-        opacity: !isOpen ? 1 : 0,
-       }} className="h-[2px] transition-all duration-300 bg-blue-200" />
-      <div style={{ 
-        transform: isOpen ? "rotate(45deg) translateX(1px)" : "none"
-       }} className="h-[2px] transition-all duration-300 bg-blue-200 origin-top-right" />
-    </div>
+    <Container onClick={onClick}>
+      <TopLine isOpen={isOpen} />
+      <CenterLine isOpen={isOpen} />
+      <BottomLine isOpen={isOpen} />
+    </Container>
   );
 };
 

@@ -1,15 +1,52 @@
-const Home = (): JSX.Element => {
+import React from "react";
+import styled from "styled-components";
+import { device } from "../../helper/devices";
+import { Heading, SubHeading } from "../../styles/SharedStyles";
+
+const Container = styled.section`
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  @media ${device.laptop} {
+    text-align: left;
+  }
+`;
+
+const Description = styled.h3`
+  line-height: 2;
+  font-weight: 500;
+  transition-duration: 300ms;
+  margin: 1.5rem 0 1.75rem;
+
+  &:hover{
+    color: rgb(var(--teal));
+  }
+
+  @media ${device.tablet} {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  @media ${device.laptop} {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-bottom: 3rem;
+  }
+`;
+
+const Home: React.FC = (): JSX.Element => {
   return (
-    <section className="min-h-screen flex justify-center flex-col text-center lg:text-left" id="home" tabIndex={0}>
-			<p className="font-primary uppercase font-medium md:text-lg lg:text-xl text-teal-400">Introduction</p>
-			<h2 className="font-primary font-normal text-3xl md:text-5xl lg:text-5xl text-blue-200 my-5 lg:mt-5 relative after:absolute after:inset-x-0 after:-bottom-3 after:bg-teal-400 lg:after:w-32 after:h-[2px]">
-				Front End Developer
-			</h2>
-			<p className="font-secondary leading-loose font-medium text-slate-500 md:text-xl lg:text-3xl transition duration-300 hover:text-teal-400 mt-6 mb-7 lg:mb-12">
+    <Container id="home">
+			<SubHeading>Introduction</SubHeading>
+			<Heading>Front End Developer</Heading>
+			<Description>
         Design, building, and maintaining interactive and responsive websites especially for modern websites.
-      </p>
+      </Description>
       <p className="text-blue-200 font-['Cookie'] text-5xl">Zulmy Azhary</p>
-		</section>
+		</Container>
   );
 };
 

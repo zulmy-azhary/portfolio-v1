@@ -1,15 +1,10 @@
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { ToggleContext } from "./ToggleContext";
-import type { Props } from "../utils/types";
-
-interface ScrollCtx {
-  scrollState: boolean;
-  setScrollState: Dispatch<SetStateAction<boolean>>;
-}
+import type { ScrollCtx } from "../types";
 
 export const ScrollContext = createContext<ScrollCtx>({} as ScrollCtx);
 
-const ScrollProvider = ({children}: Props): JSX.Element => {
+const ScrollProvider: React.FC<React.PropsWithChildren> = ({ children }): JSX.Element => {
   const [scrollState, setScrollState] = useState(false);
   const { setOpen } = useContext(ToggleContext);
 

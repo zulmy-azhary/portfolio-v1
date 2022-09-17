@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ScrollProvider, ToggleProvider } from './context';
+import FontStyles from './styles/FontStyles';
+import GlobalStyles from './styles/GlobalStyles';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,6 +13,8 @@ root.render(
   <React.StrictMode>
     <ToggleProvider>
       <ScrollProvider>
+        <FontStyles />
+        <GlobalStyles />
         <App />
       </ScrollProvider>
     </ToggleProvider>

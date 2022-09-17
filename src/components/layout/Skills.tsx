@@ -1,55 +1,69 @@
 import { useState } from "react";
 import type { Key } from "react";
-import { skills, SkillsType } from "../../utils/data";
+import { skills, SkillsType } from "../../helper/data";
+import { AnimatePresence, motion } from "framer-motion";
+import { Card, Container, Description, Heading, roundedMd, SubHeading } from "../../styles/SharedStyles";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  grid-auto-flow: row;
+  gap: 1.5rem;
+`;
+
+const Content = styled(Card)`
+  ${roundedMd}
+  flex-direction: column;
+  padding: 4rem 2rem;
+`;
 
 const Skills = (): JSX.Element => {
   const [show, setShow] = useState<SkillsType>({} as SkillsType);
+  const [hover, setHover] = useState(false);
 
   const itemHandler = (item: SkillsType): void => {
     setShow(item);
   };
   
 	return (
-		<section className="h-fit max-h-max text-center lg:text-left py-12 lg:py-16" id="skills">
-			<h1 className="font-primary uppercase font-medium md:text-lg lg:text-xl text-teal-400">
-				Tools & Skills
-			</h1>
-			<h2 className="font-primary font-normal text-3xl md:text-5xl lg:text-5xl text-blue-200 my-5 lg:mt-5 relative after:absolute after:inset-x-0 after:-bottom-3 after:bg-teal-400 lg:after:w-32 after:h-[2px]">
-				Tech Stack
-			</h2>
-			<p className="header-3 mt-6">
-				Here are a few tools and skills that i've been used to build websites.
-			</p>
-			<div className="grid grid-cols-12 auto-rows-auto grid-flow-row gap-6">
-				<div className="flex flex-col justify-center items-center gap-y-2 md:gap-y-12 py-16 px-8 col-span-12 md:col-span-6 row-span-6 md:row-span-5 xl:row-span-4 rounded-md border-[1px] border-blue-200/50 hover:border-blue-200 transition-all duration-300 text-blue-200/50 hover:text-blue-200">
+		<Container id="skills">
+			<SubHeading>Tools & Skills</SubHeading>
+			<Heading>Tech Stack</Heading>
+			<Description>Here are a few tools and skills that i've been used to build websites.</Description>
+			<Wrapper>
+				<div className="card rounded-style-lg flex-col py-16 px-8 2xl:px-12 col-span-12 md:col-span-6 row-span-6 md:row-span-5 xl:row-span-4 group" onMouseEnter={()=> setHover(true)} onMouseLeave={()=> setHover(false)}>
           {Object.keys(show).length > 0 ? (
-            <>
-              <div className="w-full flex justify-evenly items-center flex-col-reverse lg:flex-row gap-y-5">
-                <div className="basis-1/2">
-                  {show.icon && <show.icon className="text-[10rem] mx-auto" />}
+            <AnimatePresence mode="wait">
+              <motion.div key={show.name} animate={{ opacity: 1, y: 0 }} transition={{ ease: 'easeOut', duration: 0.5, type: "linear" }} initial={{ opacity: 0, y: 30 }} exit={{ opacity: 0, y: 30 }} className="w-full flex flex-col gap-y-4 md:gap-y-12">
+                <div className="w-full flex-center flex-col-reverse lg:flex-row gap-y-5">
+                  <div className="basis-1/2">
+                    {show.icon && <show.icon className="duration-300 text-[10rem] mx-auto group-hover:text-teal-400" fill={hover ? show.iconColor : "#637191"} />}
+                  </div>
+                  <div className="basis-1/2">
+                    <p className="font-primary font-semibold duration-300 text-center text-2xl group-hover:text-teal-400">{show.name}</p>
+                    <p className="font-primary duration-300 text-center text-base text-blue-200/50 group-hover:text-blue-200">Type: {show.type}</p>
+                    <p className="font-primary duration-300 text-center text-base text-blue-200/50 group-hover:text-blue-200">Release Date: {show.releaseDate}</p>
+                  </div>
                 </div>
-                <div className="basis-1/2">
-                  <p className="font-primary text-center text-xl">{show.name}</p>
-                  <p className="font-primary text-center text-base text-blue-200/50">Type: {show.type}</p>
-                  <p className="font-primary text-center text-base text-blue-200/50">Release Date: {show.releaseDate}</p>
+                <div className="text-justify duration-300 group-hover:text-teal-400">
+                  <p className="text-lg">{show.desc}</p>
                 </div>
-              </div>
-              <div className="text-justify">
-                <p>{show.desc}</p>
-              </div>
-            </>
+              </motion.div>
+            </AnimatePresence>
           ) : (
-              <p>Click item for more details</p>
+            <p className="duration-300 group-hover:text-teal-400">Click item for more details</p>
           )}
         </div>
         {skills.map((item: SkillsType, idx: Key) => (
-          <div onClick={itemHandler.bind(this, item)} key={idx} className="col-span-6 md:col-span-3 xl:col-span-2 row-span-1 h-36 rounded-md border-[1px] border-blue-200/50 hover:border-teal-400 hover:-translate-y-2 transition-all duration-300  text-blue-200/50 hover:text-teal-400 flex justify-center items-center hover:rounded-none hover:rounded-tl-2xl hover:rounded-br-2xl cursor-pointer">
-            <p className="font-primary text-center text-xl cursor-pointer">{item.name}</p>
+          <div onClick={itemHandler.bind(this, item)} key={idx} className="card rounded-style-md col-span-6 md:col-span-3 xl:col-span-2 row-span-1 h-36 hover:text-teal-400 cursor-pointer">
+            <p className="font-primary text-center text-lg xl:text-base 2xl:text-xl cursor-pointer">{item.name}</p>
             {/* <item.icon className="text-7xl" /> */}
           </div>
         ))}
-			</div>
-		</section>
+			</Wrapper>
+		</Container>
 	);
 };
 

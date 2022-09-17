@@ -1,15 +1,9 @@
-import { createContext, Dispatch, SetStateAction, useState } from 'react';
-import type { Props } from "../utils/types"
-
-interface ToggleCtx {
-  isOpen: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
-  isClosed?: () => void;
-}
+import React, { createContext, useState } from 'react';
+import type { ToggleCtx } from '../types';
 
 export const ToggleContext = createContext<ToggleCtx>({} as ToggleCtx);
 
-const ToggleProvider = ({children}: Props): JSX.Element => {
+const ToggleProvider: React.FC<React.PropsWithChildren> = ({ children }): JSX.Element => {
   const [isOpen, setOpen] = useState(false);
 
   const isClosed = () => setOpen(false);

@@ -1,11 +1,57 @@
 import { FaHeart } from "react-icons/fa";
+import styled from "styled-components";
+import { device } from "../../helper/devices";
+import React from "react";
 
-const Footer = (): JSX.Element => {
+const Wrapper = styled.footer`
+  transition-duration: 500ms;
+  position: relative;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: rgb(var(--blue) / 0.5);
+  text-align: center;
+  padding: 1.5rem 0;
+
+  &:hover {
+    border-color: rgb(var(--teal));
+  }
+
+  &:hover > * {
+    color: rgb(var(--teal));
+  }
+
+  @media ${device.tablet} {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @media ${device.laptop} {
+    text-align: start;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  @media ${device.laptopL} {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+`;
+
+const Credit = styled.p`
+  color: rgb(var(--blue) / 0.5);
+  transition-duration: 500ms;
+`;
+
+const Author = styled(Credit)`
+  margin-top: 0.5rem;
+`;
+
+const Footer: React.FC = (): JSX.Element => {
   return (
-    <footer className="transition-all duration-500 relative border-t-[1px] border-blue-200/50 hover:border-teal-400 text-center lg:text-start px-0 lg:px-20 xl:px-28 py-6 md:py-8 group">
-      <p className="text-blue-200/50 group-hover:text-teal-400 duration-500">Copyright &copy; 2022. All rights reserved.</p>
-      <p className="text-blue-200/50 mt-2 group-hover:text-teal-400 duration-500">Created with <FaHeart className="inline-block text-red-600" /> by Zulmy Azhary</p>
-    </footer>
+    <Wrapper>
+      <Credit>Copyright &copy; 2022. All rights reserved.</Credit>
+      <Author>Created with <FaHeart style={{ display: "inline-block", color: "red"}} /> by Zulmy Azhary</Author>
+    </Wrapper>
   );
 };
 
