@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
-import { Heading, SubHeading } from "../../styles/SharedStyles";
+import { Heading, SubHeading } from "../../styles/SharedComponents";
 
 const Container = styled.section`
   min-height: 100vh;
@@ -37,7 +36,7 @@ const Description = styled.h3`
   }
 `;
 
-const Home: React.FC = (): JSX.Element => {
+const Home = (): JSX.Element => {
   return (
     <Container id="home">
 			<SubHeading>Introduction</SubHeading>

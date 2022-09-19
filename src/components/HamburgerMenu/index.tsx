@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { ToggleContext } from "../../context";
 import type { ToggleCtx } from "../../types";
@@ -44,7 +44,7 @@ interface Props {
   onClick: () => void,
 }
 
-const HamburgerMenu: React.FC<Props> = ({ onClick }): JSX.Element => {
+const HamburgerMenu = ({ onClick }: Props): JSX.Element => {
   const { isOpen } = useContext(ToggleContext);
 
   return (

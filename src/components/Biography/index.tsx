@@ -1,7 +1,28 @@
-import React from 'react';
-import { Container, Description, Heading, SubHeading } from "../../styles/SharedStyles";
+import styled from 'styled-components';
+import { device } from '../../helper/devices';
+import { Container, Description, Heading, SubHeading } from "../../styles/SharedComponents";
 
-const Biography: React.FC = () => {
+const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3.5rem;
+  text-align: start;
+
+  @media ${device.tablet} {
+    column-gap: 6rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  @media ${device.laptop} {
+    column-gap: 13rem;
+    text-align: start;
+    justify-content: flex-start;
+  }
+`;
+
+const Biography = (): JSX.Element => {
   return (
     <Container id="about">
       <SubHeading>About Me</SubHeading>
@@ -9,7 +30,7 @@ const Biography: React.FC = () => {
       <Description>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia voluptatum obcaecati sed, corrupti magnam impedit eius ipsum, quisquam expedita, rem consectetur? Deleniti doloribus sed laboriosam vero odio iusto facere at omnis culpa nisi nobis in pariatur ad, a facilis consequuntur dolor voluptates! Rem hic aut nihil amet dignissimos ducimus doloribus!
       </Description>
-      <div className="flex-between md:gap-x-24 lg:gap-x-52 mt-14 text-start md:text-center lg:text-start md:justify-center lg:justify-start">
+      <Content>
         <div className="font-secondary font-medium lg:text-xl text-slate-500 flex flex-col gap-y-4 uppercase">
           <p>Name</p>
           <p>Birthday</p>
@@ -26,7 +47,7 @@ const Biography: React.FC = () => {
           <p>(+62) 853 4361 2564</p>
           <p>zulmyazhary32@gmail.com</p>
         </div>
-      </div>
+      </Content>
     </Container>
   );
 };

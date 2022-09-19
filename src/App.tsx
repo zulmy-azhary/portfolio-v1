@@ -1,12 +1,12 @@
 import './App.css';
-import { Content, Navbar } from './components/layout';
+import { Content, Navbar } from './components';
 
 export default function App() {
   return (
-    <div className="App">
+    <>
       <Navbar />
       <Content />
-    </div>
+    </>
   );
 }
 

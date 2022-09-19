@@ -1,4 +1,3 @@
-import type { IconType } from "react-icons";
 import { FaHtml5, FaSass, FaBootstrap, FaReact, FaLaravel, FaFigma } from "react-icons/fa";
 import { IoLogoCss3 } from "react-icons/io";
 import {
@@ -12,55 +11,54 @@ import {
 	SiMariadb,
 	SiRedux,
 	SiWebcomponentsdotorg,
+	SiStyledcomponents,
 } from "react-icons/si";
 import { AiFillGithub, AiFillLinkedin, AiFillFacebook, AiOutlineInstagram } from "react-icons/ai";
-import type { SocialMediaType } from "../types";
+import type { BioTypes, SkillTypes, SocialMediaTypes } from "../types";
 
 //! Navbar
 export const navLink: Array<string> = ["About", "Projects", "Skills", "Contact"];
 
+export const bio: BioTypes = {
+	name: "Zulmy Azhary",
+	birthday: "April, 14th 1999",
+	age: 23,
+	address: "Makassar, Indonesia",
+	phone: "(+62) 853 4361 2564",
+	email: "zulmyazhary32@gmail.com"
+}
+
 //! Social Media Link
-export const socialMedia: Array<SocialMediaType> = [
+export const socialMedia: Array<SocialMediaTypes> = [
 	{
 		label: "Github",
-		icon: AiFillGithub,
+		Icon: AiFillGithub,
 		url: "https://github.com/zulmy-azhary",
 	},
 	{
 		label: "Facebook",
-		icon: AiFillFacebook,
+		Icon: AiFillFacebook,
 		url: "https://www.facebook.com/zulmyazhary",
 	},
 	{
 		label: "Instagram",
-		icon: AiOutlineInstagram,
+		Icon: AiOutlineInstagram,
 		url: "https://www.instagram.com/zulmyazhary_",
 	},
 	{
 		label: "LinkedIn",
-		icon: AiFillLinkedin,
+		Icon: AiFillLinkedin,
 		url: "https://www.linkedin.com/in/zulmy-azhary-7a0b04159",
 	},
 	{
 		label: "Showwcase",
-		icon: SiWebcomponentsdotorg,
+		Icon: SiWebcomponentsdotorg,
 		url: "https://zulmyazhary.showwcase.com",
 	},
 ];
 
-//? Items Project Types
-export interface SkillsType {
-	id: number;
-	name: string;
-	type?: string;
-	releaseDate?: number | string;
-	icon: IconType;
-	iconColor?: string | any;
-	desc: string;
-}
-
 //! Item Projects
-export const skills: Array<SkillsType> = [
+export const skills: Array<SkillTypes> = [
 	{
 		id: 1,
 		name: "HTML",
@@ -144,7 +142,7 @@ export const skills: Array<SkillsType> = [
 	},
 	{
 		id: 10,
-		name: "Nextjs",
+		name: "Next",
 		type: "React Framework",
 		releaseDate: 2016,
 		icon: SiNextdotjs,
@@ -204,5 +202,14 @@ export const skills: Array<SkillsType> = [
 		icon: FaFigma,
 		iconColor: "#BFDBFE",
 		desc: "Figma is a collaborative browser-based interface design tool, with additional offline features enabled by desktop applications for macOS and Windows. The Figma mobile app for Android and iOS allows viewing and interacting with Figma prototypes in real-time on mobile and tablet devices.",
+	},
+	{
+		id: 17,
+		name: "Styled-Components",
+		type: "CSS in JS",
+		releaseDate: 0,
+		icon: SiStyledcomponents,
+		iconColor: "",
+		desc: "",
 	},
 ];

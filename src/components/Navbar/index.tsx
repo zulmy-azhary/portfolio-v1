@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { ToggleContext } from "../../context";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { Link } from "react-scroll";
-import { HamburgerMenu, Logo } from "../utils";
+import { HamburgerMenu } from "../";
 import { navLink } from "../../helper/data";
 import styled, { css, keyframes } from "styled-components";
 import { device } from "../../helper/devices";
 import type { ToggleCtx } from "../../types";
+import Logo from "../Logo";
 
 const Header = styled.header`
   width: 100%;
@@ -57,8 +58,6 @@ const Nav = styled.nav<Partial<ToggleCtx>>`
     }
   }
 `;
-
-//  "before:w-1/4 before:md:w-1/2 before:lg:w-8/12" : "before:w-0 before:opacity-0"
 
 const BrandLogo = styled(Logo)`
   position: relative;
@@ -162,7 +161,7 @@ const appearAnimation = keyframes`
 `;
 
 
-const Navbar: React.FC = (): JSX.Element => {
+const Navbar = (): JSX.Element => {
   const { isOpen, setOpen, isClosed } = useContext(ToggleContext);
   const menuRef = useClickOutside(isOpen, isClosed);
 

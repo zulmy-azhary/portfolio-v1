@@ -1,9 +1,31 @@
 import React from "react";
+import type { IconType } from "react-icons";
 
-export type SocialMediaType = {
+export type BioTypes = {
+	name: string;
+	birthday: string;
+	age: number;
+	address: string;
+	phone: string;
+	email: string;
+}
+
+//? Social Media Types
+export type SocialMediaTypes = {
 	label: string;
-	icon: any;
+	Icon: IconType;
 	url: string;
+}
+
+//? Skill Item Types
+export type SkillTypes = {
+	id: number;
+	name: string;
+	type?: string;
+	releaseDate?: number | string;
+	icon: IconType;
+	iconColor: string;
+	desc: string;
 }
 
 export interface ToggleCtx {

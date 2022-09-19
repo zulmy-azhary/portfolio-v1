@@ -1,7 +1,6 @@
 import { FaHeart } from "react-icons/fa";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
-import React from "react";
 
 const Wrapper = styled.footer`
   transition-duration: 500ms;
@@ -46,7 +45,7 @@ const Author = styled(Credit)`
   margin-top: 0.5rem;
 `;
 
-const Footer: React.FC = (): JSX.Element => {
+const Footer = (): JSX.Element => {
   return (
     <Wrapper>
       <Credit>Copyright &copy; 2022. All rights reserved.</Credit>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Key } from "react";
-import { Container, Description, Heading, SubHeading } from "../../styles/SharedStyles";
+import { Container, Description, Heading, SubHeading } from "../../styles/SharedComponents";
 
 interface ProjectsType {
   id: number;
