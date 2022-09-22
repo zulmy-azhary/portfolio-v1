@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { ScrollProvider, ToggleProvider } from './context';
 import FontStyles from './styles/FontStyles';
 import GlobalStyles from './styles/GlobalStyles';
+import { Cursor } from './components';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,6 +16,7 @@ root.render(
       <ScrollProvider>
         <FontStyles />
         <GlobalStyles />
+        <Cursor />
         <App />
       </ScrollProvider>
     </ToggleProvider>

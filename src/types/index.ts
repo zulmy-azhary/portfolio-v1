@@ -18,12 +18,12 @@ export type SocialMediaTypes = {
 }
 
 //? Skill Item Types
-export type SkillTypes = {
+export type TechTypes = {
 	id: number;
 	name: string;
 	type?: string;
 	releaseDate?: number | string;
-	icon: IconType;
+	Icon: IconType | (() => JSX.Element);
 	iconColor: string;
 	desc: string;
 }

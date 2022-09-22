@@ -46,10 +46,10 @@
 					 -mt-2 mb-8;
 	}
 
-	/* .card-bg {
+	.card-bg {
 		@apply relative overflow-hidden after:absolute after:duration-300 after:-z-10 after:bg-secondary-800 after:border-l-2 after:border-indigo-900/70 after:-skew-x-[29.5deg] after:inset-y-full after:hover:inset-y-0 after:w-full after:-right-1/2;
 		box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
-	} */
+	}
 
 	.rounded-style-md {
 		@apply hover:rounded-none hover:rounded-tl-2xl hover:rounded-br-2xl;
@@ -69,15 +69,8 @@
 }
 
 @layer utilities {
-	* {
-		@apply focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-teal-400 focus-visible:outline-offset-4 focus-visible:duration-300;
-	}
 
 	/* .active {
 		@apply text-primary-900 hover:text-blue-200 bg-teal-400 md:text-teal-400 md:bg-transparent;
 	} */
-
-	::selection {
-		@apply bg-indigo-900/70 text-blue-200;
-	}
 }

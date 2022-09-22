@@ -15,6 +15,8 @@ export const Container = styled.section`
 
 export const Card = styled.div`
   display: flex;
+  position: relative;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
   border-radius: 0.375rem/* 6px */;
@@ -22,9 +24,39 @@ export const Card = styled.div`
   color: rgb(var(--blue) / 0.5);
   transition-duration: 300ms;
 
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    transition-duration: 500ms;
+    z-index: -10;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &:before {
+    background-color: rgb(var(--blue) / 0.03);
+    left: -150%;
+    transform: skewX(330deg);
+  }
+
+  &:after {
+    background-color: rgb(var(--secondary) / 0.5);
+    right: -150%;
+    transform: skewX(-30deg);
+  }
+
   &:hover {
     border-color: rgb(var(--teal));
     transform: translateY(-0.5rem);
+
+    &:before {
+      left: -50%;
+    }
+    
+    &:after {
+      right: -50%;
+    }
   }
 `;
 

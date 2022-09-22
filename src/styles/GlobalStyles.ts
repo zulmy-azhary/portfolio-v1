@@ -16,9 +16,24 @@ export default createGlobalStyle`
     box-sizing: border-box;
     cursor: default;
     letter-spacing: 0.05em;
+
+    /* Focus */
+    &:focus-visible {
+      outline-width: 2px;
+      outline-style: dashed;
+      outline-color: rgb(var(--teal));
+      outline-offset: 5px;
+      transition-duration: 300ms;
+    }
+  }
+
+  ::selection {
+    background-color: rgb(var(--slate) / 0.3);
+    color: rgb(var(--teal));
   }
 
   body {
+    overflow-x: hidden;
     background-color: var(--mainBackground);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

@@ -1,10 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
 import { Card } from "../../styles/SharedComponents";
-import { roundedMd } from "../../styles/SharedStyles";
-import type { SkillTypes } from "../../types";
+import { roundedLg } from "../../styles/SharedStyles";
+import type { TechTypes } from "../../types";
 
 
 const InitialDesc = styled.p`
@@ -32,27 +31,40 @@ const SubTitle = styled.p`
 `;
 
 const ContentCard = styled(Card)`
-  ${roundedMd}
   flex-direction: column;
-  padding: 4rem 2rem;
   grid-column: span 12 / span 12;
   grid-row: span 6 / span 6;
+  padding: 2rem;
+  
+  &:hover {
+    ${roundedLg}
+    ${InitialDesc}, ${ContentDesc}, ${Title} {
+      color: rgb(var(--teal));
+    }
 
-  &:hover :is(${InitialDesc}, ${ContentDesc}, ${Title}) {
-    color: rgb(var(--teal));
+    ${SubTitle} {
+      color: rgb(var(--blue));
+    }
   }
-
-  &:hover ${SubTitle} {
-    color: rgb(var(--blue));
+  
+  svg {
+    margin: 0 auto;
+    transition-duration: 300ms;
   }
-
+  
   @media ${device.tablet} {
     grid-column: span 6 / span 6;
     grid-row: span 5 / span 5;
   }
 
-  @media ${device.laptopL} {
+  @media ${device.laptop} {
+    padding: 4rem 2rem;
+    grid-column: span 8 / span 8;
     grid-row: span 4 / span 4;
+  }
+
+  @media ${device.laptopL} {
+    grid-column: span 6 / span 6;
   }
 `;
 
@@ -60,7 +72,7 @@ const Content = styled(motion.div)`
   width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 2.5rem;
 
   @media ${device.tablet} {
     row-gap: 3rem;
@@ -75,7 +87,7 @@ const Main = styled.div`
   flex-direction: column-reverse;
   row-gap: 1.25rem;
 
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     flex-direction: row;
   }
 `;
@@ -90,18 +102,18 @@ const TextDesc = styled.p`
 `;
 
 interface Props {
-  show: SkillTypes;
+  show: TechTypes;
 }
 
-const SkillCard = ({ show }: Props): JSX.Element => {
-  const [hover, setHover] = useState(false);
+const TechDetailCard = ({ show }: Props): JSX.Element => {
+  const { name, type, releaseDate, desc, Icon } = show;
 
   return (
-    <ContentCard onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      {Object.keys(show).length > 0 ? (
+    <ContentCard>
+      {Object.keys(show).length ? (
         <AnimatePresence mode="wait">
           <Content
-            key={show.name}
+            key={name}
             variants={contentVariants}
             initial="initial"
             animate="animate"
@@ -110,16 +122,16 @@ const SkillCard = ({ show }: Props): JSX.Element => {
           >
             <Main>
               <Group>
-                {show.icon && <show.icon className="duration-300 text-[10rem] mx-auto group-hover:text-teal-400" fill={hover ? show.iconColor : "#637191"} />}
+                <Icon />
               </Group>
               <Group>
-                <Title>{show.name}</Title>
-                <SubTitle>Type: {show.type}</SubTitle>
-                <SubTitle>Release Date: {show.releaseDate}</SubTitle>
+                <Title>{name}</Title>
+                <SubTitle>Type: {type}</SubTitle>
+                <SubTitle>Release Date: {releaseDate}</SubTitle>
               </Group>
             </Main>
             <ContentDesc>
-              <TextDesc>{show.desc}</TextDesc>
+              <TextDesc>{desc}</TextDesc>
             </ContentDesc>
           </Content>
         </AnimatePresence>
@@ -136,4 +148,4 @@ const contentVariants = {
   exit: { opacity: 0, y: 30 },
 }
 
-export default SkillCard
+export default TechDetailCard

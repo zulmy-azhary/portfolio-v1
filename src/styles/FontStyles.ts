@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { ComicNeueEot, ComicNeueWoff2, ComicNeueTtf, ComicNeueSvg } from "../fonts/comicNeue";
+import { CookieEot, CookieWoff2, CookieTtf, CookieSvg } from "../fonts/cookie";
 import { JostEot, JostSvg, JostTtf, JostWoff2 } from "../fonts/jost";
 import { OpenSansEot, OpenSansWoff2, OpenSansTtf, OpenSansSvg } from "../fonts/openSans";
 
@@ -44,5 +45,19 @@ export default createGlobalStyle`
         url(${OpenSansWoff2}) format('woff'), /* Modern Browsers */
         url(${OpenSansTtf}) format('truetype'), /* Safari, Android, iOS */
         url(${OpenSansSvg} + '#OpenSans') format('svg'); /* Legacy iOS */
+  }
+
+  /* cookie-regular - latin */
+  @font-face {
+    font-family: 'Cookie';
+    font-style: normal;
+    font-weight: 400;
+    src: url(${CookieEot}); /* IE9 Compat Modes */
+    src: local(''),
+        url(${CookieEot} + '?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url(${CookieWoff2}) format('woff2'), /* Super Modern Browsers */
+        url(${CookieWoff2}) format('woff'), /* Modern Browsers */
+        url(${CookieTtf}) format('truetype'), /* Safari, Android, iOS */
+        url(${CookieSvg} + '#Cookie') format('svg'); /* Legacy iOS */
   }
 `;

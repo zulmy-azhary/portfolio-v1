@@ -3,14 +3,16 @@ import { device } from "../../helper/devices";
 import { Heading, SubHeading } from "../../styles/SharedComponents";
 
 const Container = styled.section`
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-
+  margin: 2rem 0;
+  
   @media ${device.laptop} {
+    min-height: 100vh;
     text-align: left;
+    margin: 0;
   }
 `;
 
@@ -36,6 +38,12 @@ const Description = styled.h3`
   }
 `;
 
+const TextName = styled.p`
+  color: rgb(var(--blue));
+  font-family: "Cookie";
+  font-size: 3rem;
+`;
+
 const Home = (): JSX.Element => {
   return (
     <Container id="home">
@@ -44,7 +52,7 @@ const Home = (): JSX.Element => {
 			<Description>
         Design, building, and maintaining interactive and responsive websites especially for modern websites.
       </Description>
-      <p className="text-blue-200 font-['Cookie'] text-5xl">Zulmy Azhary</p>
+      <TextName>Zulmy Azhary</TextName>
 		</Container>
   );
 };

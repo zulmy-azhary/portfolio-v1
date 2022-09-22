@@ -1,40 +1,16 @@
-import logo from "../../assets/profile_pic.png";
+import logo from "../../assets/alternate-profilev2.jpg";
 import { useContext } from "react";
 import { ScrollContext } from "../../context";
 import { socialMedia } from "../../helper/data";
 import type { ScrollCtx, SocialMediaTypes } from "../../types";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
-
-const Container = styled.section<Partial<ScrollCtx>>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transition-duration: 500ms;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: 0 auto;
-
-  @media ${device.laptop} {
-    position: fixed;
-    padding: 0 3rem;
-    width: 33.333333%;
-  }
-
-  @media ${device.laptopL} {
-    padding: 0 4%;
-
-    width: ${props => props.scrollState ? 25 : 33.333333}%;
-  }
-`;
+import { flexCenter, roundedMd, roundedSm } from "../../styles/SharedStyles";
+import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
+  ${flexCenter}
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   row-gap: 1.75rem;
   padding: 6rem 2.5rem;
@@ -44,13 +20,14 @@ const Wrapper = styled.div`
     position: absolute;
     border: 1px solid rgb(var(--blue) / 0.5);
     transition-duration: 300ms;
+    z-index: -1;
   }
 
   &:before {
-    top: 1.75rem;
-    bottom: 1.75rem;
-    left: -1.75rem;
-    right: -1.75rem;
+    top: 1.25rem;
+    bottom: 1.25rem;
+    left: -1.25rem;
+    right: -1.25rem;
   }
 
   &:after {
@@ -71,32 +48,176 @@ const Wrapper = styled.div`
   }
 `;
 
+const Image = styled.img`
+  filter: grayscale(100%);
+  width: 10rem;
+  margin: 0 auto;
+  cursor: pointer;
+  user-select: none;
+  transition-duration: 300ms;
+  outline: 0 solid rgb(var(--teal));
+
+  @media ${device.tablet}{
+    width: 15rem;
+  }
+
+  @media ${device.laptop}{
+    width: 100%;
+  }
+
+  @media ${device.laptopL}{
+    width: 18rem;
+  }
+`;
+
+const ProfileSubText = styled.p`
+  font-family: "Comic Neue";
+  font-weight: 500;
+  color: rgb(var(--blue) / 0.5);
+  transition-duration: 300ms;
+
+  @media ${device.laptopL}{
+    font-size: 1.125rem;
+  }
+`;
+
+const ProfileMainText = styled(ProfileSubText)`
+  font-weight: 600;
+
+  @media ${device.laptopL}{
+    font-size: 1.5rem;
+  }
+`;
+
+const SocialMediaIcon = styled.a`
+  transition-duration: 300ms;
+  color: rgb(var(--blue));
+  font-size: 1.5rem;
+  color: rgb(var(--blue) / 0.5);
+  border: 1px solid rgb(var(--blue)/ 0.5);
+  padding: 0.3rem;
+  border-radius: 3px;
+  cursor: pointer;
+  
+  &:hover {
+    ${roundedSm}
+    transform: scale(1.2);
+
+    * {
+      cursor: pointer;
+    }
+  }
+
+  @media ${device.laptop} {
+    font-size: 1.6rem;
+  }
+  
+  @media ${device.laptopL} {
+    font-size: 1.75rem;
+  }
+`;
+
+const Container = styled.section<Partial<ScrollCtx>>`
+  ${flexCenter}
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+  width: max-content;
+  border-left-width: none;
+  padding: 5rem 0;
+
+  &:hover {
+    ${Wrapper}{
+      &:before, &:after {
+        border-color: rgb(var(--teal));
+      }
+    }
+
+    ${Image}{
+      ${roundedMd}
+      filter: grayscale(0);
+      outline-width: 1px;
+      outline-offset: 5px;
+    }
+
+    ${ProfileSubText}{
+      color: rgb(var(--teal));
+    }
+
+    ${ProfileMainText}{
+      color: rgb(var(--blue));
+    }
+
+    ${SocialMediaIcon}{
+      border: 1px solid rgb(var(--teal));
+      color: rgb(var(--teal));
+    }
+  }
+
+  @media ${device.laptop} {
+    border-left-width: 1px;
+    border-color: rgb(var(--blue) / 0.5);
+    position: fixed;
+    padding: 0 3rem;
+    width: 30%;
+
+    &:hover {
+      border-color: rgb(var(--teal));
+    }
+  }
+
+  @media ${device.laptopL} {
+    padding: 0 4%;
+    transition-duration: 500ms;
+    width: ${props => props.scrollState ? 25 : 35}%;
+  }
+`;
+
+const SocialMedia = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0 1.25rem;
+
+  @media ${device.laptop} {
+    padding: 0;
+    margin-top: 3rem;
+  }
+
+  @media ${device.laptopL} {
+    padding: 0 1rem;
+    justify-content: space-evenly;
+  }
+`;
+
+const ProfileDescWrapper = styled.div`
+  text-align: center;
+  margin-top: 0.75rem;
+`;
+
 const Profile = (): JSX.Element => {
   const { scrollState } = useContext(ScrollContext);
 
   return (
     <Container scrollState={scrollState}>
 			<Wrapper>
-        <img
-          className="grayscale group-hover:grayscale-0 w-40 md:w-60 lg:w-full xl:w-72 mx-auto cursor-pointer select-none duration-300 group-hover:rounded-tl-3xl group-hover:rounded-br-3xl rounded-none"
-          src={logo} alt="Profile"
-        />
-				<div className="text-center mt-3">
-					<p className="font-secondary font-semibold xl:text-lg text-blue-200/50 group-hover:text-teal-400 duration-300">
-						Hi there! I'am
-					</p>
-					<h2 className="font-secondary font-medium xl:text-2xl text-blue-200/50 group-hover:text-blue-200 duration-300">
-						Zulmy Azhary
-					</h2>
-        </div>
+        <Image src={logo} alt="Profile" />
+				<ProfileDescWrapper>
+					<ProfileSubText>Hi there! I'am</ProfileSubText>
+					<ProfileMainText as={motion.h2}>Zulmy Azhary</ProfileMainText>
+        </ProfileDescWrapper>
 			</Wrapper>
-      <div className="flex-between gap-4 xl:gap-6 mt-6 lg:mt-12 text-blue-200">
+      <SocialMedia>
         {socialMedia.map(({ label, url, Icon }: SocialMediaTypes) => (
-          <a key={label} href={url} aria-label={label} target="_blank" rel="noreferrer">
-            <Icon className="social-media-icon" />
-          </a>
+          <SocialMediaIcon key={label} href={url} aria-label={label} target="_blank" rel="noreferrer">
+            <Icon />
+          </SocialMediaIcon>
         ))}
-      </div>
+      </SocialMedia>
 		</Container>
   );
 };

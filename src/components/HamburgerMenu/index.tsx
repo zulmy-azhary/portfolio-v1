@@ -25,7 +25,6 @@ const Line = styled.div<Partial<ToggleCtx>>`
 
 const TopLine = styled(Line)`
   transform-origin: top right;
-
   transform: ${({ isOpen }) => isOpen && "rotate(-45deg) translateX(-1px)"};
 `;
 
@@ -36,7 +35,6 @@ const CenterLine = styled(Line)`
 
 const BottomLine = styled(Line)`
   transform-origin: top right;
-
   transform: ${({ isOpen }) => isOpen && "rotate(45deg) translateX(1px)"};
 `;
 

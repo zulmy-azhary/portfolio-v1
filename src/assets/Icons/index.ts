@@ -1,0 +1,12 @@
+export { default as Html } from "./Html";
+export { default as Css } from "./Css";
+export { default as Javascript } from "./Javascript";
+export { default as Typescript } from "./Typescript";
+export { default as Tailwind } from "./Tailwind";
+export { default as Sass } from "./Sass";
+export { default as ReactJS } from "./ReactJS";
+export { default as NextJS } from "./NextJS";
+export { default as Figma } from "./Figma";
+export { default as Firebase } from "./Firebase";
+export { default as Redux } from "./Redux";
+export { default as Bootstrap } from "./Bootstrap";

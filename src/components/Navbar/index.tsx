@@ -108,7 +108,11 @@ const Aside = styled.aside<Partial<ToggleCtx>>`
   }
 
   @media ${device.laptop} {
-    width: 33.333333%;
+    width: 30%;
+  }
+
+  @media ${device.laptopL} {
+    width: 35%;
   }
 `;
 
