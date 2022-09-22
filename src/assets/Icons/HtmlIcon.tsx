@@ -21,7 +21,7 @@ const RightText = styled.path`
   fill: white;
 `;
 
-const HTML = (): JSX.Element => {
+const HtmlIcon = (): JSX.Element => {
   return (
     <Svg viewBox="0 0 90 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <Background d="M8.92813 90.034L0.906738 0H89.0934L81.072 89.9854L44.9272 100"/>
@@ -32,4 +32,4 @@ const HTML = (): JSX.Element => {
   )
 }
 
-export default HTML;
+export default HtmlIcon;

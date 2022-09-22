@@ -1,4 +1,4 @@
-const Figma = (): JSX.Element => {
+const FigmaIcon = (): JSX.Element => {
   return (
     <svg width="68" height="100" viewBox="0 0 68 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.1617 100C26.3617 100 33.8284 92.5334 33.8284 83.3334V66.6667H17.1617C7.96172 66.6667 0.495056 74.1334 0.495056 83.3334C0.495056 92.5334 7.96172 100 17.1617 100Z" fill="#0ACF83"/>
@@ -10,4 +10,4 @@ const Figma = (): JSX.Element => {
   )
 }
 
-export default Figma;
+export default FigmaIcon;

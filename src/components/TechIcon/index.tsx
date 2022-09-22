@@ -55,4 +55,4 @@ const SkillIcon = ({ handler }: Props): JSX.Element => {
   )
 }
 
-export default SkillIcon
+export default SkillIcon;

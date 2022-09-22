@@ -1,4 +1,4 @@
-const Typescript = (): JSX.Element => {
+const TypescriptIcon = (): JSX.Element => {
   return (
     <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0.380615 0.485107H100.381V100.485H0.380615V0.485107Z" fill="#017ACB"/>
@@ -7,4 +7,4 @@ const Typescript = (): JSX.Element => {
   )
 }
 
-export default Typescript
+export default TypescriptIcon;

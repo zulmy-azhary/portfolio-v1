@@ -1,4 +1,4 @@
-const Javascript = (): JSX.Element => {
+const JavascriptIcon = (): JSX.Element => {
   return (
     <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M100.552 0.594238H0.552246V100.594H100.552V0.594238Z" fill="#F7DF1E"/>
@@ -7,4 +7,4 @@ const Javascript = (): JSX.Element => {
   )
 }
 
-export default Javascript
+export default JavascriptIcon;

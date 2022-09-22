@@ -1,4 +1,4 @@
-const Firebase = (): JSX.Element => {
+const FirebaseIcon = (): JSX.Element => {
   return (
     <svg width="74" height="101" viewBox="0 0 74 101" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M48.3434 37.0107L38.3426 46.3224L29.0593 27.5896L33.855 16.8186C35.0671 14.6701 37.0494 14.6417 38.2615 16.8186L48.3434 37.0107Z" fill="#FFA000"/>
@@ -9,4 +9,4 @@ const Firebase = (): JSX.Element => {
   )
 }
 
-export default Firebase;
+export default FirebaseIcon;

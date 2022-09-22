@@ -1,4 +1,4 @@
-const NextJS = () => {
+const NextJSIcon = () => {
   return (
     <svg
       width="101"
@@ -23,4 +23,4 @@ const NextJS = () => {
   );
 };
 
-export default NextJS;
+export default NextJSIcon;

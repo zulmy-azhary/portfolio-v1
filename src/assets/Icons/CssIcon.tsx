@@ -5,7 +5,7 @@ const Svg = styled.svg`
   height: 100px;
 `;
 
-const Css = (): JSX.Element => {
+const CssIcon = (): JSX.Element => {
   return (
     <Svg viewBox="0 0 89 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M88.1919 0L80.159 89.9895L44.0505 100L8.04148 90.0037L0.0170288 0H88.1919Z" fill="#264DE4"/>
@@ -18,4 +18,4 @@ const Css = (): JSX.Element => {
   )
 }
 
-export default Css;
+export default CssIcon;
