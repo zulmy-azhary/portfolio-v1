@@ -16,6 +16,7 @@ const Container = styled.div`
 `;
 
 const Line = styled.div<Partial<ToggleCtx>>`
+  cursor: pointer;
   height: 2px;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
   ${flexCenter}
+  max-width: 100%;
   position: relative;
   flex-direction: column;
   row-gap: 1.75rem;
@@ -66,7 +67,7 @@ const Image = styled.img`
   }
 
   @media ${device.laptopL}{
-    width: 18rem;
+    max-width: 18rem;
   }
 `;
 
@@ -90,6 +91,7 @@ const ProfileMainText = styled(ProfileSubText)`
 `;
 
 const SocialMediaIcon = styled.a`
+  line-height: 0;
   transition-duration: 300ms;
   color: rgb(var(--blue));
   font-size: 1.5rem;
@@ -125,7 +127,7 @@ const Container = styled.section<Partial<ScrollCtx>>`
   right: 0;
   margin: 0 auto;
   width: max-content;
-  border-left-width: none;
+  border: 0 solid rgb(var(--blue) / 0.5);
   padding: 5rem 0;
 
   &:hover {

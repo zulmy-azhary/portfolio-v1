@@ -58,12 +58,12 @@ const ContentCard = styled(Card)`
   }
 
   @media ${device.laptop} {
-    padding: 4rem 2rem;
     grid-column: span 8 / span 8;
     grid-row: span 4 / span 4;
   }
 
   @media ${device.laptopL} {
+    padding: 4rem 2rem;
     grid-column: span 6 / span 6;
   }
 `;
@@ -93,6 +93,7 @@ const Main = styled.div`
 `;
 
 const Group = styled.div`
+  text-align: center;
   flex-basis: 50%;
 `;
 

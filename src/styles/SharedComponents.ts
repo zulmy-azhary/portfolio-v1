@@ -65,6 +65,7 @@ export const Heading = styled.h1`
   margin: 1.25rem 0;
   font-size: 1.875rem/* 30px */;
   line-height: 2.25rem/* 36px */;
+  font-weight: 400;
 
   &:after {
     position: absolute;

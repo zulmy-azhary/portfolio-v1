@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Key } from "react";
 import { Container, Description, Heading, SubHeading } from "../../styles/SharedComponents";
+import styled from "styled-components";
 
 interface ProjectsType {
   id: number;
@@ -9,6 +10,15 @@ interface ProjectsType {
   language: string;
   html_url: string;
 }
+
+const GridList = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-flow: row;
+  gap: 3rem 1.5rem;
+  padding: 0 1rem;
+`;
 
 const Projects = (): JSX.Element => {
   // const [datas, setDatas] = useState([] as Array<ProjectsType>);
@@ -27,8 +37,8 @@ const Projects = (): JSX.Element => {
       <SubHeading>Portfolio</SubHeading>
       <Heading>Featured Projects</Heading>
       <Description>Here's something that I've built</Description>
-      <div className="relative grid grid-cols-12 grid-flow-row gap-x-6 gap-y-12 px-4">
-      </div>
+      <GridList>
+      </GridList>
     </Container>
   );
 };
