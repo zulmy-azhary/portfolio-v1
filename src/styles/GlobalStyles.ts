@@ -55,7 +55,7 @@ export default createGlobalStyle`
   }
 
   h3 {
-    font-family: "Comic Neue", "Open Sans", sans-serif;
+    font-family: "Comic Neue", sans-serif;
     color: rgb(var(--slate));
   }
 
