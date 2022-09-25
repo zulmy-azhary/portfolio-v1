@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { device } from "../../helper/devices";
 import { flexCenter, roundedMd, roundedSm } from "../../styles/SharedStyles";
 import { motion } from "framer-motion";
+import logo from "../../assets/profile-pic.jpg";
 
 const Wrapper = styled.div`
   ${flexCenter}
@@ -206,7 +207,7 @@ const Profile = (): JSX.Element => {
   return (
     <Container scrollState={scrollState}>
 			<Wrapper>
-        <Image src="/profile-pic.jpg" alt="Profile" />
+        <Image src={logo} alt="Profile" />
 				<ProfileDescWrapper>
 					<ProfileSubText>Hi there! I'am</ProfileSubText>
 					<ProfileMainText as={motion.h2}>Zulmy Azhary</ProfileMainText>

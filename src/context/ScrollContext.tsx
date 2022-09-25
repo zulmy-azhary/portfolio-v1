@@ -13,7 +13,7 @@ const ScrollProvider: React.FC<React.PropsWithChildren> = ({ children }): JSX.El
 
   const scrollHandler = (): void => {
     window.scrollY && setOpen(false)
-		window.scrollY >= 200 && isLaptopL ? setScrollState(true) : setScrollState(false);
+		window.scrollY >= 200 ? setScrollState(true) : setScrollState(false);
 	}
 
 	useEffect(() => {

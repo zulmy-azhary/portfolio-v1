@@ -4,6 +4,7 @@ import { ScrollContext } from "../../context";
 import { device } from "../../helper/devices";
 import type { ScrollCtx } from "../../types";
 import { Home, Profile, Biography, Projects, TechStack, Footer } from "../";
+import { domAnimation, LazyMotion, m } from "framer-motion";
 
 const Container = styled.main`
   transition-property: all;
@@ -61,20 +62,22 @@ const Content = (): JSX.Element => {
   const { scrollState } = useContext(ScrollContext);
 
   return (
-    <Container>
-      <Wrapper scrollState={scrollState}>
-        <Main>
-          <Home />
-          <Biography />
-          <Projects />
-          <TechStack />
-        </Main>
-        <Footer />
-      </Wrapper>
-      <ProfileWrapper scrollState={scrollState}>
-        <Profile />
-      </ProfileWrapper>
-    </Container>
+    <LazyMotion features={domAnimation}>
+      <Container as={m.div} animate={{opacity: 1}}>
+        <Wrapper scrollState={scrollState}>
+          <Main>
+            <Home />
+            <Biography />
+            <Projects />
+            <TechStack />
+          </Main>
+          <Footer />
+        </Wrapper>
+        <ProfileWrapper scrollState={scrollState}>
+          <Profile />
+        </ProfileWrapper>
+      </Container>
+    </LazyMotion>
   );
 };
 

@@ -13,3 +13,4 @@ export { default as Logo } from "./Logo";
 export { default as TechDetailCard } from "./TechDetailCard";
 export { default as TechIcon } from "./TechIcon";
 export { default as Cursor } from "./Cursor";
+export { default as Loader } from "./Loader";

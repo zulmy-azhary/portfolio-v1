@@ -4,10 +4,11 @@ import { useClickOutside } from "../../hooks/useClickOutside";
 import { Link } from "react-scroll";
 import { HamburgerMenu } from "../";
 import { navLink } from "../../helper/data";
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import { device } from "../../helper/devices";
 import type { ToggleCtx } from "../../types";
 import Logo from "../Logo";
+import { appearAnimation } from "../../styles/SharedStyles";
 
 const Header = styled.header`
   width: 100%;
@@ -126,7 +127,7 @@ const NavItem = styled.li<Partial<ToggleCtx> & { order: number }>`
   transition-duration: 300ms;
   padding: 0.75rem 2.5rem;
 
-  ${(props) => props.isOpen && css`
+  ${props => props.isOpen && css`
     opacity: 0;
     animation: 1s ${appearAnimation} forwards;
     animation-delay: ${(props.order + 1) * 0.2}s;
@@ -150,17 +151,6 @@ const NavItem = styled.li<Partial<ToggleCtx> & { order: number }>`
   @media ${device.laptop} {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-`;
-
-const appearAnimation = keyframes`
-  0% { 
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% { 
-    transform: translateY(0);
-    opacity: 1;
   }
 `;
 

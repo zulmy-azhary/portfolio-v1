@@ -28,7 +28,8 @@ const Logo = (): JSX.Element => {
 	return (
 		<Container
 			viewBox="0 0 42 42"
-      xmlns="http://www.w3.org/2000/svg"
+			xmlns="http://www.w3.org/2000/svg"
+			whileHover={{ scale: 1.1 }}
 		>
 			<Border
 				d="M4.31347 11.366L21 1.73205L37.6865 11.366V30.634L21 40.2679L4.31347 30.634V11.366Z"

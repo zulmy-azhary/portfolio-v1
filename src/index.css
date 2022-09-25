@@ -1,0 +1,41 @@
+/* jost-regular - latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/jost/jost-v14-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local('Jost'),
+      url("./assets/fonts/jost/jost-v14-latin-regular.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+      url("./assets/fonts/jost/jost-v14-latin-regular.woff2") format('woff2'), /* Super Modern Browsers */
+      url("./assets/fonts/jost/jost-v14-latin-regular.woff") format('woff'), /* Modern Browsers */
+      url("./assets/fonts/jost/jost-v14-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
+      url("./assets/fonts/jost/jost-v14-latin-regular.svg#Jost") format('svg'); /* Legacy iOS */
+}
+
+/* comic-neue-regular - latin */
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/comicNeue/comic-neue-v8-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local('Comic Neue'),
+      url("./assets/fonts/comicNeue/comic-neue-v8-latin-regular.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+      url("./assets/fonts/comicNeue/comic-neue-v8-latin-regular.woff2") format('woff2'), /* Super Modern Browsers */
+      url("./assets/fonts/comicNeue/comic-neue-v8-latin-regular.woff") format('woff'), /* Modern Browsers */
+      url("./assets/fonts/comicNeue/comic-neue-v8-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
+      url("./assets/fonts/comicNeue/comic-neue-v8-latin-regular.svg#ComicNeue") format('svg'); /* Legacy iOS */
+}
+
+/* cookie-regular - latin */
+@font-face {
+  font-family: 'Cookie';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/cookie/cookie-v17-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local('Cookie'),
+      url("./assets/fonts/cookie/cookie-v17-latin-regular.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+      url("./assets/fonts/cookie/cookie-v17-latin-regular.woff2") format('woff2'), /* Super Modern Browsers */
+      url("./assets/fonts/cookie/cookie-v17-latin-regular.woff") format('woff'), /* Modern Browsers */
+      url("./assets/fonts/cookie/cookie-v17-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
+      url("./assets/fonts/cookie/cookie-v17-latin-regular.svg#Cookie") format('svg'); /* Legacy iOS */
+}
