@@ -1,4 +1,3 @@
-import logo from "../../assets/alternate-profilev2.jpg";
 import { useContext } from "react";
 import { ScrollContext } from "../../context";
 import { socialMedia } from "../../helper/data";
@@ -207,7 +206,7 @@ const Profile = (): JSX.Element => {
   return (
     <Container scrollState={scrollState}>
 			<Wrapper>
-        <Image src={logo} alt="Profile" />
+        <Image src="/profile-pic.jpg" alt="Profile" />
 				<ProfileDescWrapper>
 					<ProfileSubText>Hi there! I'am</ProfileSubText>
 					<ProfileMainText as={motion.h2}>Zulmy Azhary</ProfileMainText>

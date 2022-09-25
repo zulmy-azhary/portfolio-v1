@@ -1,6 +1,8 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect } from "react";
 import styled from "styled-components";
+import { device } from "../../helper/devices";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 const SIZE = 8;
 
@@ -15,18 +17,6 @@ const Circle = styled(motion.div)`
   border-radius: ${SIZE}px;
   mix-blend-mode: difference;
   pointer-events: none;
-
-  /* &:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background-color: rgb(var(--teal));
-    border-radius: 2.5px;
-    transform: translate(-50%, -50%);
-  } */
 `;
 
 const Cursor = (): JSX.Element => {
@@ -36,6 +26,8 @@ const Cursor = (): JSX.Element => {
   const springConfig = { damping: 50, stiffness: 300 };
   const x = useSpring(cursorX, springConfig);
   const y = useSpring(cursorY, springConfig);
+
+  const isLaptop = useMediaQuery(device.laptop);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -48,7 +40,9 @@ const Cursor = (): JSX.Element => {
   }, [cursorX, cursorY]);
 
   return (
-    <Circle id="cursor" style={{translateX: x, translateY: y}} />
+    <>
+      {isLaptop && <Circle id="cursor" style={{translateX: x, translateY: y}} />}
+    </>
   )
 }
 

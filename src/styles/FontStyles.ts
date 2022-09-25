@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { JostWoff, JostWoff2, ComicNeueWoff2, ComicNeueWoff, CookieWoff2, CookieWoff } from "../assets/fonts";
 
 export default createGlobalStyle`
   /* jost-regular - latin */
@@ -7,13 +6,14 @@ export default createGlobalStyle`
     font-family: 'Jost';
     font-style: normal;
     font-weight: 400;
-    src: url("../assets/fonts/jost/jost-v14-latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(''),
-        url('../assets/fonts/jost/jost-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url(${JostWoff2}) format('woff2'), /* Super Modern Browsers */
-        url(${JostWoff}) format('woff'), /* Modern Browsers */
-        url("../assets/fonts/jost/jost-v14-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
-        url('../assets/fonts/jost/jost-v14-latin-regular.svg#Jost') format('svg'); /* Legacy iOS */
+    src: url("/fonts/jost/jost-v14-latin-regular.eot"); /* IE9 Compat Modes */
+    src: local('Jost'),
+        url('/fonts/jost/jost-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url("/fonts/jost/jost-v14-latin-regular.woff2") format('woff2'), /* Super Modern Browsers */
+        url("/fonts/jost/jost-v14-latin-regular.woff") format('woff'), /* Modern Browsers */
+        url("/fonts/jost/jost-v14-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
+        url('/fonts/jost/jost-v14-latin-regular.svg#Jost') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
 
   /* comic-neue-regular - latin */
@@ -21,13 +21,14 @@ export default createGlobalStyle`
     font-family: 'Comic Neue';
     font-style: normal;
     font-weight: 400;
-    src: url("../assets/fonts/comicNeue/comic-neue-v8-latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(''),
-        url('../assets/fonts/comicNeue/comic-neue-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url(${ComicNeueWoff2}) format('woff2'), /* Super Modern Browsers */
-        url(${ComicNeueWoff}) format('woff'), /* Modern Browsers */
-        url("../assets/fonts/comicNeue/comic-neue-v8-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
-        url('../assets/fonts/comicNeue/comic-neue-v8-latin-regular.svg#ComicNeue') format('svg'); /* Legacy iOS */
+    src: url("/fonts/comicNeue/comic-neue-v8-latin-regular.eot"); /* IE9 Compat Modes */
+    src: local('Comic Neue'),
+        url('/fonts/comicNeue/comic-neue-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url("/fonts/comicNeue/comic-neue-v8-latin-regular.woff2") format('woff2'), /* Super Modern Browsers */
+        url("/fonts/comicNeue/comic-neue-v8-latin-regular.woff") format('woff'), /* Modern Browsers */
+        url("/fonts/comicNeue/comic-neue-v8-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
+        url('/fonts/comicNeue/comic-neue-v8-latin-regular.svg#ComicNeue') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
 
   /* cookie-regular - latin */
@@ -35,12 +36,13 @@ export default createGlobalStyle`
     font-family: 'Cookie';
     font-style: normal;
     font-weight: 400;
-    src: url("../assets/fonts/cookie/cookie-v17-latin-regular.eot"); /* IE9 Compat Modes */
-    src: local(''),
-        url('../assets/fonts/cookie/cookie-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url(${CookieWoff2}) format('woff2'), /* Super Modern Browsers */
-        url(${CookieWoff}) format('woff'), /* Modern Browsers */
-        url("../assets/fonts/cookie/cookie-v17-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
-        url('../assets/fonts/cookie/cookie-v17-latin-regular.svg#Cookie') format('svg'); /* Legacy iOS */
+    src: url("/fonts/cookie/cookie-v17-latin-regular.eot"); /* IE9 Compat Modes */
+    src: local('Cookie'),
+        url('/fonts/cookie/cookie-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url("/fonts/cookie/cookie-v17-latin-regular.woff2") format('woff2'), /* Super Modern Browsers */
+        url("/fonts/cookie/cookie-v17-latin-regular.woff") format('woff'), /* Modern Browsers */
+        url("/fonts/cookie/cookie-v17-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
+        url('/fonts/cookie/cookie-v17-latin-regular.svg#Cookie') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
 `;

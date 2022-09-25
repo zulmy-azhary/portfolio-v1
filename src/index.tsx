@@ -12,11 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <FontStyles />
+    <GlobalStyles />
+    <Cursor />
     <ToggleProvider>
       <ScrollProvider>
-        <FontStyles />
-        <GlobalStyles />
-        <Cursor />
         <App />
       </ScrollProvider>
     </ToggleProvider>
