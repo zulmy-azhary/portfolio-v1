@@ -10,3 +10,5 @@ export { default as FigmaIcon } from "./FigmaIcon";
 export { default as FirebaseIcon } from "./FirebaseIcon";
 export { default as ReduxIcon } from "./ReduxIcon";
 export { default as BootstrapIcon } from "./BootstrapIcon";
+export { default as MuiIcon } from "./MuiIcon";
+export { default as ViteIcon } from "./ViteIcon";

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { teches } from "../../helper/data";
+import React, { useState } from "react";
+import { teches } from "../../helper/data/teches";
 import { Container, Description, Heading, SubHeading } from "../../styles/SharedComponents";
 import styled from "styled-components";
 import type { TechTypes } from "../../types";
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   gap: 1.5rem;
 `;
 
-const TechStack = (): JSX.Element => {
+const TechStack: React.FC = () => {
   const [show, setShow] = useState<TechTypes>({} as TechTypes);
 
   const itemHandler = (itemName: string): void => {

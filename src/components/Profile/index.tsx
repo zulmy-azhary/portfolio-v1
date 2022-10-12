@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { ScrollContext } from "../../context";
-import { socialMedia } from "../../helper/data";
-import type { ScrollCtx, SocialMediaTypes } from "../../types";
+import React from "react";
+import { useScroll } from "../../context";
+import { socialMedia } from "../../helper/data/socialMedia";
+import type { Scroll, SocialMediaTypes } from "../../types";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
 import { flexCenter, roundedMd, roundedSm } from "../../styles/SharedStyles";
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   &:before, &:after {
     content: "";
     position: absolute;
-    border: 1px solid rgb(var(--blue) / 0.5);
+    border: 1px solid rgb(var(--blue) / 0.75);
     transition-duration: 300ms;
     z-index: -1;
   }
@@ -53,7 +53,7 @@ const Image = styled.img`
   filter: grayscale(100%);
   width: 10rem;
   margin: 0 auto;
-  cursor: pointer;
+  pointer-events: none;
   user-select: none;
   transition-duration: 300ms;
   outline: 0 solid rgb(var(--teal));
@@ -74,7 +74,7 @@ const Image = styled.img`
 const ProfileSubText = styled.p`
   font-family: "Comic Neue";
   font-weight: 500;
-  color: rgb(var(--blue) / 0.5);
+  color: rgb(var(--blue) / 0.75);
   transition-duration: 300ms;
 
   @media ${device.laptopL}{
@@ -95,8 +95,8 @@ const SocialMediaIcon = styled.a`
   transition-duration: 300ms;
   color: rgb(var(--blue));
   font-size: 1.5rem;
-  color: rgb(var(--blue) / 0.5);
-  border: 1px solid rgb(var(--blue)/ 0.5);
+  color: rgb(var(--blue) / 0.75);
+  border: 1px solid rgb(var(--blue) / 0.75);
   padding: 0.3rem;
   border-radius: 3px;
   cursor: pointer;
@@ -119,7 +119,7 @@ const SocialMediaIcon = styled.a`
   }
 `;
 
-const Container = styled.section<Partial<ScrollCtx>>`
+const Container = styled.section<Scroll>`
   ${flexCenter}
   flex-direction: column;
   top: 0;
@@ -127,8 +127,8 @@ const Container = styled.section<Partial<ScrollCtx>>`
   right: 0;
   margin: 0 auto;
   width: max-content;
-  border: 0 solid rgb(var(--blue) / 0.5);
-  padding: 5rem 0;
+  border: 0 solid rgb(var(--blue) / 0.75);
+  padding: 7rem 0;
 
   &:hover {
     ${Wrapper}{
@@ -158,9 +158,13 @@ const Container = styled.section<Partial<ScrollCtx>>`
     }
   }
 
+  @media ${device.tablet} {
+    padding: 9rem 0;
+  }
+
   @media ${device.laptop} {
     border-left-width: 1px;
-    border-color: rgb(var(--blue) / 0.5);
+    border-color: rgb(var(--blue) / 0.75);
     position: fixed;
     padding: 0 3rem;
     width: 30%;
@@ -201,8 +205,8 @@ const ProfileDescWrapper = styled.div`
   margin-top: 0.75rem;
 `;
 
-const Profile = (): JSX.Element => {
-  const { scrollState } = useContext(ScrollContext);
+const Profile: React.FC = () => {
+  const { scrollState } = useScroll();
 
   return (
     <Container scrollState={scrollState}>

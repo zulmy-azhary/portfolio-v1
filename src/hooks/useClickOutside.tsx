@@ -1,33 +1,27 @@
 import { useEffect, useRef, useCallback } from "react";
 
-export let useClickOutside = (
+export const useClickOutside = (
   state: boolean,
   handler: () => void
 ): React.MutableRefObject<HTMLElement | undefined> => {
-  let menuRef = useRef<HTMLElement>();
+  let menuRef = useRef<HTMLElement | undefined>(undefined);
 
-  // When user click outside
-  let handlerEvent = useCallback(
-    (e: Event): void => {
+  
+  useEffect(() => {
+    if (!state) return;
+    // When user click outside
+    const handlerEvent = (e: MouseEvent): void => {
       if (!menuRef.current?.contains(e.target as HTMLElement) && state) {
         handler();
       }
-    },
-    [state]
-  );
-
-  // When user press esc key
-  const handleEscKey = useCallback(
-    (e: KeyboardEvent) => {
+    };
+  
+    // When user press esc key
+    const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && state) {
         handler();
       }
-    },
-    [state]
-  );
-
-  useEffect(() => {
-    if (!state) return;
+    };
 
     document.addEventListener("mousedown", handlerEvent);
     document.addEventListener("keydown", handleEscKey);

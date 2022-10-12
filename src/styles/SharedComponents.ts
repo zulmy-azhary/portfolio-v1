@@ -16,55 +16,24 @@ export const Container = styled.section`
 export const Card = styled.div`
   display: flex;
   position: relative;
-  overflow: hidden;
   justify-content: center;
   align-items: center;
-  border-radius: 0.375rem/* 6px */;
-  border: 1px solid rgb(var(--blue) / 0.5);
+  border-radius: 0.375rem /* 6px */;
+  background-color: rgb(var(--secondaryBackground));
   color: rgb(var(--blue) / 0.5);
   transition-duration: 300ms;
-
-  &:before, &:after {
-    content: "";
-    position: absolute;
-    transition-duration: 500ms;
-    z-index: -10;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-  }
-
-  &:before {
-    background-color: rgb(var(--blue) / 0.03);
-    left: -150%;
-    transform: skewX(330deg);
-  }
-
-  &:after {
-    background-color: rgb(var(--secondary) / 0.5);
-    right: -150%;
-    transform: skewX(-30deg);
-  }
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 
   &:hover {
-    border-color: rgb(var(--teal));
     transform: translateY(-0.5rem);
-
-    &:before {
-      left: -50%;
-    }
-    
-    &:after {
-      right: -50%;
-    }
   }
 `;
 
 export const Heading = styled.h1`
   position: relative;
   margin: 1.25rem 0;
-  font-size: 1.875rem/* 30px */;
-  line-height: 2.25rem/* 36px */;
+  font-size: 1.875rem /* 30px */;
+  line-height: 2.25rem /* 36px */;
   font-weight: 400;
 
   &:after {
@@ -72,13 +41,13 @@ export const Heading = styled.h1`
     content: "";
     left: 0px;
     right: 0px;
-    bottom: -0.75rem/* -12px */;
+    bottom: -0.75rem /* -12px */;
     background-color: rgb(var(--teal));
     height: 2px;
   }
 
   @media ${device.tablet} {
-    font-size: 3rem/* 48px */;
+    font-size: 3rem /* 48px */;
     line-height: 1;
   }
 
@@ -87,7 +56,7 @@ export const Heading = styled.h1`
     font-size: 3rem;
 
     &:after {
-      width: 8rem/* 128px */;
+      width: 8rem /* 128px */;
     }
   }
 `;
@@ -112,19 +81,24 @@ export const Description = styled.h3`
   margin: 1.5rem 0 2rem;
 
   @media ${device.tablet} {
-    font-size: 1.125rem/* 18px */;
-    line-height: 1.75rem/* 28px */;
+    font-size: 1.125rem /* 18px */;
+    line-height: 1.75rem /* 28px */;
   }
 
   @media ${device.laptop} {
     text-align: left;
-    font-size: 1.5rem/* 24px */;
-    line-height: 2rem/* 32px */;
+    font-size: 1.5rem /* 24px */;
+    line-height: 2rem /* 32px */;
   }
 `;
 
 export const Text = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  color: rgb(var(--blue) / 0.5);
+  font-family: "Inter";
+  letter-spacing: 1px;
+  line-height: 1.75rem;
+  font-weight: 300;
 `;
 
 export const SubText = styled.p`

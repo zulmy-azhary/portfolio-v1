@@ -1,10 +1,10 @@
+import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Content, Cursor, Loader, Navbar } from './components';
+import { Content, Cursor, Loader, Navbar } from "./components";
 
-export default function App() {
+const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  
+
   return (
     <>
       {/* <AnimatePresence mode="wait">
@@ -15,4 +15,5 @@ export default function App() {
       <Content />
     </>
   );
-}
+};
+export default App;

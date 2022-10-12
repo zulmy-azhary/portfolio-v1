@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { ToggleContext } from "../../context";
-import type { ToggleCtx } from "../../types";
+import { useToggle } from "../../context";
+import type { Toggle } from "../../types";
 
 const Container = styled.div`
   width: 1.5rem;
@@ -15,7 +15,7 @@ const Container = styled.div`
   cursor: pointer;
 `;
 
-const Line = styled.div<Partial<ToggleCtx>>`
+const Line = styled.div<Toggle>`
   cursor: pointer;
   height: 2px;
   transition-property: all;
@@ -43,8 +43,8 @@ interface Props {
   onClick: () => void,
 }
 
-const HamburgerMenu = ({ onClick }: Props): JSX.Element => {
-  const { isOpen } = useContext(ToggleContext);
+const HamburgerMenu: React.FC<Props> = ({ onClick }) => {
+  const { isOpen } = useToggle();
 
   return (
     <Container onClick={onClick}>

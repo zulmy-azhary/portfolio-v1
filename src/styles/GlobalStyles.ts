@@ -2,11 +2,12 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   :root {
-    --mainBackground: #070725;
+    --mainBackground: #070833;
+    --secondaryBackground: 18, 25, 70;
     --teal: 45 212 191; //teal-400
     --blue: 191 219 254; //blue-200
     --primary: 7 7 37; //primary-900
-    --secondary: 8 8 47; //secondary-700
+    --secondary: 8 8 60; //secondary-700
     --slate: 100 116 139; //text
   }
 
@@ -56,7 +57,7 @@ export default createGlobalStyle`
 
   h3 {
     font-family: "Comic Neue", sans-serif;
-    color: rgb(var(--slate));
+    color: rgb(var(--blue) / 0.5);
   }
 
   ::-webkit-scrollbar {

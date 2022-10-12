@@ -1,8 +1,13 @@
-import React from "react";
 import type { IconType } from "react-icons";
+import type { ScrollCtx, ToggleCtx } from "../context";
+
+type ID = number;
+type Name = string;
+export type Toggle = Pick<ToggleCtx, "isOpen">;
+export type Scroll = Pick<ScrollCtx, "scrollState">;
 
 export type BioTypes = {
-	name: string;
+	name: Name;
 	birthday: string;
 	age: number;
 	address: string;
@@ -17,10 +22,21 @@ export type SocialMediaTypes = {
 	url: string;
 }
 
+//? Project Types
+export type ProjectTypes = {
+	id: ID;
+	name: Name;
+	image: string;
+	description: string;
+	tech: string[];
+	repo: string;
+	liveUrl: string;
+}
+
 //? Skill Item Types
 export type TechTypes = {
-	id: number;
-	name: string;
+	id: ID;
+	name: Name;
 	type?: string;
 	releaseDate?: number | string;
 	Icon: IconType | (() => JSX.Element);
@@ -28,13 +44,3 @@ export type TechTypes = {
 	desc: string;
 }
 
-export interface ToggleCtx {
-	isOpen: boolean;
-	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-	isClosed: () => void;
-}
-
-export interface ScrollCtx {
-	scrollState: boolean;
-	setScrollState: React.Dispatch<React.SetStateAction<boolean>>;
-}

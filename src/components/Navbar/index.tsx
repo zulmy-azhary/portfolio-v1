@@ -1,22 +1,29 @@
-import React, { useContext } from "react";
-import { ToggleContext } from "../../context";
+import React from "react";
+import { useToggle } from "../../context";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { Link } from "react-scroll";
 import { HamburgerMenu } from "../";
-import { navLink } from "../../helper/data";
+import { navLink } from "../../helper/data/navLink";
 import styled, { css } from "styled-components";
 import { device } from "../../helper/devices";
-import type { ToggleCtx } from "../../types";
 import Logo from "../Logo";
 import { appearAnimation } from "../../styles/SharedStyles";
+import type { Toggle } from "../../types";
 
 const Header = styled.header`
   width: 100%;
   position: fixed;
   z-index: 9999;
+  background-color: var(--mainBackground);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+  @media ${device.laptop} {
+    background-color: transparent;
+    box-shadow: none;
+  }
 `;
 
-const Nav = styled.nav<Partial<ToggleCtx>>`
+const Nav = styled.nav<Toggle>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +61,14 @@ const Nav = styled.nav<Partial<ToggleCtx>>`
   @media ${device.laptop} {
     &:before {
       ${({ isOpen }) => isOpen && css`
-        width: 66.666667%;
+        width: 70%;
+      `}
+    }
+  }
+  @media ${device.laptopL} {
+    &:before {
+      ${({ isOpen }) => isOpen && css`
+        width: 65%;
       `}
     }
   }
@@ -79,7 +93,7 @@ const AsideContainer = styled.div`
 
 `;
 
-const Aside = styled.aside<Partial<ToggleCtx>>`
+const Aside = styled.aside<Toggle>`
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
@@ -117,7 +131,7 @@ const Aside = styled.aside<Partial<ToggleCtx>>`
   }
 `;
 
-const NavItem = styled.li<Partial<ToggleCtx> & { order: number }>`
+const NavItem = styled.li<Toggle & { order: number }>`
   font-weight: 500;
   color: rgb(var(--blue));
   font-size: 1rem;
@@ -154,9 +168,8 @@ const NavItem = styled.li<Partial<ToggleCtx> & { order: number }>`
   }
 `;
 
-
-const Navbar = (): JSX.Element => {
-  const { isOpen, setOpen, isClosed } = useContext(ToggleContext);
+const Navbar: React.FC = () => {
+  const { isOpen, setOpen, isClosed } = useToggle();
   const menuRef = useClickOutside(isOpen, isClosed);
 
   return (

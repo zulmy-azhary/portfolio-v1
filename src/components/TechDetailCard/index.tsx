@@ -1,3 +1,4 @@
+import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
@@ -26,8 +27,8 @@ const Title = styled.p`
 const SubTitle = styled.p`
   transition-duration: 300ms;
   text-align: center;
-  font-size: 1rem;
-  color: rgb(var(--blue) / 0.5);
+  font-size: 0.8rem;
+  color: rgb(var(--blue) / 0.75);
 `;
 
 const ContentCard = styled(Card)`
@@ -35,15 +36,12 @@ const ContentCard = styled(Card)`
   grid-column: span 12 / span 12;
   grid-row: span 6 / span 6;
   padding: 2rem;
+  color: rgb(var(--blue));
   
   &:hover {
     ${roundedLg}
-    ${InitialDesc}, ${ContentDesc}, ${Title} {
+    ${InitialDesc}, ${Title} {
       color: rgb(var(--teal));
-    }
-
-    ${SubTitle} {
-      color: rgb(var(--blue));
     }
   }
   
@@ -98,15 +96,16 @@ const Group = styled.div`
 `;
 
 const TextDesc = styled.p`
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.75rem;
+  color: rgb(var(--blue) / 0.9);
 `;
 
 interface Props {
   show: TechTypes;
 }
 
-const TechDetailCard = ({ show }: Props): JSX.Element => {
+const TechDetailCard: React.FC<Props> = ({ show }) => {
   const { name, type, releaseDate, desc, Icon } = show;
 
   return (

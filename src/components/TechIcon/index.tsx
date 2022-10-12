@@ -1,5 +1,6 @@
+import React from "react";
 import styled from "styled-components";
-import { teches } from "../../helper/data";
+import { teches } from "../../helper/data/teches";
 import { device } from "../../helper/devices";
 import { Card } from "../../styles/SharedComponents";
 import { roundedMd } from "../../styles/SharedStyles";
@@ -11,12 +12,12 @@ const IconCard = styled(Card)`
   height: 7.5rem;
   cursor: pointer;
   padding: 0;
-  
+
   &:hover {
     ${roundedMd}
     color: rgb(var(--teal));
   }
-  
+
   /* The icons */
   svg {
     scale: 0.75;
@@ -43,16 +44,16 @@ interface Props {
   handler: (e: string) => void;
 }
 
-const SkillIcon = ({ handler }: Props): JSX.Element => {
+const TechIcon: React.FC<Props> = ({ handler }) => {
   return (
     <>
-      {teches.map(({id, name, Icon}: TechTypes) => (
+      {teches.map(({ id, name, Icon }: TechTypes) => (
         <IconCard onClick={() => handler(name)} key={id}>
           <Icon />
         </IconCard>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default SkillIcon;
+export default TechIcon;

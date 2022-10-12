@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
 import { Heading, SubHeading } from "../../styles/SharedComponents";
@@ -44,7 +45,7 @@ const TextName = styled.p`
   font-size: 3rem;
 `;
 
-const Home = (): JSX.Element => {
+const Home: React.FC = () => {
   return (
     <Container id="home">
 			<SubHeading>Introduction</SubHeading>

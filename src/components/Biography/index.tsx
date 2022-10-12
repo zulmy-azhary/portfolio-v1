@@ -1,6 +1,7 @@
+import React from "react";
 import styled from 'styled-components';
 import { device } from '../../helper/devices';
-import { Container, Description, Heading, SubHeading } from "../../styles/SharedComponents";
+import { Container, Text, Heading, SubHeading } from "../../styles/SharedComponents";
 
 const Content = styled.div`
   display: flex;
@@ -40,15 +41,15 @@ const Label = styled(Main)`
   text-transform: uppercase;
 `;
 
-const Biography = (): JSX.Element => {
+const Biography: React.FC = () => {
   return (
     <Container id="about">
       <SubHeading>About Me</SubHeading>
       <Heading>Biography</Heading>
-      <Description>
+      <Text>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia voluptatum obcaecati sed, corrupti magnam impedit eius ipsum, quisquam expedita, rem consectetur? Deleniti doloribus sed laboriosam vero odio iusto facere at omnis culpa nisi nobis in pariatur ad, a facilis consequuntur dolor voluptates! Rem hic aut nihil amet dignissimos ducimus doloribus!
-      </Description>
-      <Content>
+      </Text>
+      {/* <Content>
         <Label>
           <p>Name</p>
           <p>Birthday</p>
@@ -65,7 +66,7 @@ const Biography = (): JSX.Element => {
           <p>(+62) 853 4361 2564</p>
           <p>zulmyazhary32@gmail.com</p>
         </Main>
-      </Content>
+      </Content> */}
     </Container>
   );
 };

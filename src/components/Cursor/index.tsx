@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
@@ -11,15 +11,15 @@ const Circle = styled(motion.div)`
   z-index: 99999;
   left: 0;
   top: 0;
-  width: ${SIZE * 2}px;
-  height: ${SIZE * 2}px;
+  width: calc(${SIZE} * 2px);
+  height: calc(${SIZE} * 2px);
   border: 2px solid rgb(var(--teal));
   border-radius: ${SIZE}px;
   mix-blend-mode: difference;
   pointer-events: none;
 `;
 
-const Cursor = (): JSX.Element => {
+const Cursor: React.FC = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 

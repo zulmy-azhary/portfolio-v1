@@ -1,10 +1,9 @@
-import { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { ScrollContext } from "../../context";
+import { useScroll } from "../../context";
 import { device } from "../../helper/devices";
-import type { ScrollCtx } from "../../types";
+import type { Scroll } from "../../types";
 import { Home, Profile, Biography, Projects, TechStack, Footer } from "../";
-import { domAnimation, LazyMotion, m } from "framer-motion";
 
 const Container = styled.main`
   transition-property: all;
@@ -18,7 +17,7 @@ const Container = styled.main`
   }
 `;
 
-const Wrapper = styled.div<Partial<ScrollCtx>>`
+const Wrapper = styled.div<Scroll>`
   transition-duration: 500ms;
 
   @media ${device.laptop} {
@@ -30,7 +29,7 @@ const Wrapper = styled.div<Partial<ScrollCtx>>`
   }
 `;
 
-const ProfileWrapper = styled.div<Partial<ScrollCtx>>`
+const ProfileWrapper = styled.div<Scroll>`
   position: relative;
   display: flex;
   justify-content: center;
@@ -58,26 +57,24 @@ const Main = styled.div`
   }
 `;
 
-const Content = (): JSX.Element => {
-  const { scrollState } = useContext(ScrollContext);
+const Content: React.FC = () => {
+  const { scrollState } = useScroll();
 
   return (
-    <LazyMotion features={domAnimation}>
-      <Container as={m.div} animate={{opacity: 1}}>
-        <Wrapper scrollState={scrollState}>
-          <Main>
-            <Home />
-            <Biography />
-            <Projects />
-            <TechStack />
-          </Main>
-          <Footer />
-        </Wrapper>
-        <ProfileWrapper scrollState={scrollState}>
-          <Profile />
-        </ProfileWrapper>
-      </Container>
-    </LazyMotion>
+    <Container>
+      <Wrapper scrollState={scrollState}>
+        <Main>
+          <Home />
+          <Biography />
+          <Projects />
+          <TechStack />
+        </Main>
+        <Footer />
+      </Wrapper>
+      <ProfileWrapper scrollState={scrollState}>
+        <Profile />
+      </ProfileWrapper>
+    </Container>
   );
 };
 

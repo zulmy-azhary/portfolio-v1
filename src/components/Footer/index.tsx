@@ -1,9 +1,11 @@
+import React from "react";
 import { FaHeart } from "react-icons/fa";
 import styled from "styled-components";
 import { device } from "../../helper/devices";
 
 const Credit = styled.p`
-  color: rgb(var(--blue) / 0.5);
+  font-size: 0.95rem;
+  color: rgb(var(--blue) / 0.75);
   transition-duration: 500ms;
 `;
 
@@ -16,13 +18,13 @@ const Wrapper = styled.footer`
   position: relative;
   border-top-width: 1px;
   border-top-style: solid;
-  border-color: rgb(var(--blue) / 0.5);
+  border-color: rgb(var(--blue) / 0.75);
   text-align: center;
   padding: 1.5rem 0;
 
   &:hover {
     border-color: rgb(var(--teal));
-    ${Credit}{
+    ${Credit} {
       color: rgb(var(--teal));
     }
   }
@@ -34,21 +36,25 @@ const Wrapper = styled.footer`
 
   @media ${device.laptop} {
     text-align: start;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   @media ${device.laptopL} {
-    padding-left: 7rem;
-    padding-right: 7rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
   }
 `;
 
-const Footer = (): JSX.Element => {
+const Footer: React.FC = () => {
   return (
     <Wrapper>
       <Credit>Copyright &copy; 2022. All rights reserved.</Credit>
-      <Author>Created with <FaHeart style={{ display: "inline-block", color: "red" }} /> by Zulmy Azhary</Author>
+      <Author>
+        Created with{" "}
+        <FaHeart style={{ display: "inline-block", color: "red", verticalAlign: "middle" }} /> by
+        Zulmy Azhary
+      </Author>
     </Wrapper>
   );
 };

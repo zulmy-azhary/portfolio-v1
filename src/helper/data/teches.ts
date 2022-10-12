@@ -1,6 +1,4 @@
-import { SiWebcomponentsdotorg } from "react-icons/si";
-import { AiFillGithub, AiFillLinkedin, AiFillFacebook, AiOutlineInstagram } from "react-icons/ai";
-import type { BioTypes, TechTypes, SocialMediaTypes } from "../types";
+import type { TechTypes } from "../../types";
 import {
   BootstrapIcon,
   CssIcon,
@@ -8,57 +6,18 @@ import {
   FirebaseIcon,
   HtmlIcon,
   JavascriptIcon,
+  MuiIcon,
   NextJSIcon,
   ReactJSIcon,
   ReduxIcon,
   SassIcon,
   TailwindIcon,
   TypescriptIcon,
-} from "../assets/Icons";
-
-//! Navbar
-export const navLink: Array<string> = ["About", "Projects", "Technologies", "Contact"];
-
-export const biography: BioTypes = {
-  name: "Zulmy Azhary",
-  birthday: "April, 14th 1999",
-  age: 23,
-  address: "Makassar, Indonesia",
-  phone: "(+62) 853 4361 2564",
-  email: "zulmyazhary32@gmail.com",
-};
-
-//! Social Media Link
-export const socialMedia: Array<SocialMediaTypes> = [
-  {
-    label: "Github",
-    Icon: AiFillGithub,
-    url: "https://github.com/zulmy-azhary",
-  },
-  {
-    label: "Facebook",
-    Icon: AiFillFacebook,
-    url: "https://www.facebook.com/zulmyazhary",
-  },
-  {
-    label: "Instagram",
-    Icon: AiOutlineInstagram,
-    url: "https://www.instagram.com/zulmyazhary_",
-  },
-  {
-    label: "LinkedIn",
-    Icon: AiFillLinkedin,
-    url: "https://www.linkedin.com/in/zulmy-azhary-7a0b04159",
-  },
-  {
-    label: "Showwcase",
-    Icon: SiWebcomponentsdotorg,
-    url: "https://zulmyazhary.showwcase.com",
-  },
-];
+  ViteIcon,
+} from "../../assets/Icons";
 
 //! Item Projects
-export const teches: Array<TechTypes> = [
+export const teches: TechTypes[] = [
   {
     id: 1,
     name: "HTML",
@@ -166,5 +125,23 @@ export const teches: Array<TechTypes> = [
     Icon: FigmaIcon,
     iconColor: "#BFDBFE",
     desc: "Figma is a collaborative browser-based interface design tool, with additional offline features enabled by desktop applications for macOS and Windows. The Figma mobile app for Android and iOS allows viewing and interacting with Figma prototypes in real-time on mobile and tablet devices.",
+  },
+  {
+    id: 13,
+    name: "Material UI",
+    type: "React Component Library",
+    releaseDate: 2014,
+    Icon: MuiIcon,
+    iconColor: "#BFDBFE",
+    desc: "Material-UI is simply a library that allows us to import and use different components to create a user interface in our React applications. This saves a significant amount of time since the developers do not need to write everything from scratch. MUI provides a simple, customizable, and accessible library of React components.",
+  },
+  {
+    id: 14,
+    name: "Vite",
+    type: "Next Generation Frontend Tooling",
+    releaseDate: 2014,
+    Icon: ViteIcon,
+    iconColor: "#BFDBFE",
+    desc: 'Vite (French word for "quick", pronounced /vit/ , like "veet") is a build tool that aims to provide a faster and leaner development experience for modern web projects. Vite can be used to develop JavaScript/TypeScript applications with support for popular libraries such as React, Svelte, Preact, and even vanilla JavaScript.',
   },
 ];

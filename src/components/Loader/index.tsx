@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { flexCenter, rotateAnimation } from "../../styles/SharedStyles";
@@ -36,7 +36,7 @@ interface Props {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Loader = ({ setLoading }: Props): JSX.Element => {
+const Loader: React.FC<Props> = ({ setLoading }) => {
 
   useEffect(() => {
     setLoading(true);
