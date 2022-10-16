@@ -174,7 +174,7 @@ const Projects: React.FC = () => {
                 </ProjectCard>
               </ContentWrapper>
               <ImageWrapper>
-                <Image src={project.image} />
+                <Image src={project.image} alt={project.name} />
                 <TechWrapper>
                   {project.tech.map((item: string) => (
                     <TechList key={item}>

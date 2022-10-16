@@ -7,8 +7,8 @@ import { navLink } from "../../helper/data/navLink";
 import styled, { css } from "styled-components";
 import { device } from "../../helper/devices";
 import Logo from "../Logo";
-import { appearAnimation } from "../../styles/SharedStyles";
 import type { Toggle } from "../../types";
+import { motion } from "framer-motion";
 
 const Header = styled.header`
   width: 100%;
@@ -40,36 +40,45 @@ const Nav = styled.nav<Toggle>`
     backdrop-filter: blur(4px);
     z-index: 9;
 
-    ${({ isOpen }) => isOpen ? css`
-      width: 25%;
-    ` : css`
-      width: 0;
-      opacity: 0;
-    `}
+    ${({ isOpen }) =>
+      isOpen
+        ? css`
+            width: 25%;
+          `
+        : css`
+            width: 0;
+            opacity: 0;
+          `}
   }
 
   @media ${device.tablet} {
     padding: 1.5rem 2.25rem;
 
     &:before {
-      ${({ isOpen }) => isOpen && css`
-        width: 50%;
-      `}
+      ${({ isOpen }) =>
+        isOpen &&
+        css`
+          width: 50%;
+        `}
     }
   }
 
   @media ${device.laptop} {
     &:before {
-      ${({ isOpen }) => isOpen && css`
-        width: 70%;
-      `}
+      ${({ isOpen }) =>
+        isOpen &&
+        css`
+          width: 70%;
+        `}
     }
   }
   @media ${device.laptopL} {
     &:before {
-      ${({ isOpen }) => isOpen && css`
-        width: 65%;
-      `}
+      ${({ isOpen }) =>
+        isOpen &&
+        css`
+          width: 65%;
+        `}
     }
   }
 `;
@@ -89,19 +98,10 @@ const BrandLogo = styled(Logo)`
   }
 `;
 
-const AsideContainer = styled.div`
-
-`;
-
-const Aside = styled.aside<Toggle>`
+const List = styled(({ isOpen, ...props }) => <motion.ul {...props} />)<Toggle>`
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  background-color: rgb(var(--secondary));
-  width: 75%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,43 +109,38 @@ const Aside = styled.aside<Toggle>`
   row-gap: 1rem;
   column-gap: 3.5rem;
   list-style-type: none;
-  padding: 0 3rem;
 
-  ${({ isOpen }) => !isOpen ? css`
-    right: -25%;
-    visibility: hidden;
-    opacity: 0;
-  ` : css` right: 0; `}
+  @media ${device.tablet} {
+    row-gap: 3.5rem;
+  }
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  padding: 0 3rem;
+  background-color: rgb(var(--secondary));
 
   @media ${device.tablet} {
     width: 50%;
-    row-gap: 3.5rem;
   }
 
   @media ${device.laptop} {
     width: 30%;
   }
-
   @media ${device.laptopL} {
     width: 35%;
   }
 `;
 
-const NavItem = styled.li<Toggle & { order: number }>`
-  font-weight: 500;
+const NavItem = styled(({ isOpen, ...props }) => <motion.li {...props} />)<Toggle>`
+  font-family: Inter;
+  font-weight: 400;
   color: rgb(var(--blue));
   font-size: 1rem;
   line-height: 1.5rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition-duration: 300ms;
   padding: 0.75rem 2.5rem;
-
-  ${props => props.isOpen && css`
-    opacity: 0;
-    animation: 1s ${appearAnimation} forwards;
-    animation-delay: ${(props.order + 1) * 0.2}s;
-  `}
 
   a {
     cursor: pointer;
@@ -175,24 +170,82 @@ const Navbar: React.FC = () => {
   return (
     <Header>
       <Nav isOpen={isOpen}>
-        <Link to="home" spy={true} smooth={"easeInOutQuart"} duration={900} onClick={isClosed} tabIndex={0}>
+        <Link
+          to="home"
+          spy={true}
+          smooth={"easeInOutQuart"}
+          duration={900}
+          onClick={isClosed}
+          tabIndex={0}
+        >
           <BrandLogo />
         </Link>
-        <AsideContainer ref={menuRef as React.RefObject<HTMLDivElement>}>
-          <Aside isOpen={isOpen}>
-            {navLink.map((item: string, idx: number): JSX.Element => (
-              <NavItem isOpen={isOpen} order={idx} key={idx} tabIndex={0}>
-                <Link to={item.toLowerCase()} spy={true} smooth={"easeInOutQuart"} duration={900} onClick={isClosed}>
+        <aside ref={menuRef as React.RefObject<HTMLElement>}>
+          <List
+            isOpen={isOpen}
+            variants={variants}
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+          >
+            {navLink.map((item: string) => (
+              <NavItem
+                key={item}
+                variants={navItemVariants}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                isOpen={isOpen}
+                tabIndex={0}
+              >
+                <Link
+                  to={item.toLowerCase()}
+                  spy={true}
+                  smooth={"easeInOutQuart"}
+                  duration={900}
+                  onClick={isClosed}
+                >
                   {item}
                 </Link>
               </NavItem>
             ))}
-          </Aside>
+          </List>
           <HamburgerMenu onClick={() => setOpen(!isOpen)} />
-        </AsideContainer>
+        </aside>
       </Nav>
     </Header>
   );
+};
+
+const variants = {
+  open: {
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+      duration: 0.5,
+    },
+    right: 0,
+  },
+  closed: {
+    transition: {
+      staggerDirection: -1,
+      duration: 0.5,
+    },
+    right: "-100%",
+  },
+};
+
+const navItemVariants = {
+  open: {
+    x: 0,
+    opacity: 1,
+  },
+  closed: {
+    x: 50,
+    opacity: 0,
+    transition: {
+      duration: 0.1,
+    },
+  },
 };
 
 export default Navbar;
