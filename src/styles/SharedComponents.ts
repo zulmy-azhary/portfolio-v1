@@ -1,15 +1,16 @@
 import styled from "styled-components";
-import { device } from "../helper/devices";
+import { device } from "helper/devices";
+import { roundedSm } from "styles/SharedStyles";
 
 export const Container = styled.section`
   text-align: center;
   height: fit-content;
   max-height: max-content;
-  padding: 3rem 0;
+  padding: 4rem 0;
 
-  @media ${device.laptop} {
+  @media ${device.tablet} {
     text-align: left;
-    padding: 4rem 0;
+    padding: 6rem 0;
   }
 `;
 
@@ -19,13 +20,15 @@ export const Card = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 0.375rem /* 6px */;
-  background-color: rgb(var(--secondaryBackground));
+  background-color: rgb(var(--secondary) / 1);
   color: rgb(var(--blue) / 0.5);
   transition-duration: 300ms;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 
   &:hover {
+    ${roundedSm}
     transform: translateY(-0.5rem);
+    background-color: rgb(var(--secondaryBackground));
   }
 `;
 
@@ -64,6 +67,7 @@ export const Heading = styled.h1`
 export const SubHeading = styled.h2`
   text-transform: uppercase;
   font-weight: 500;
+  font-size: 1rem;
 
   @media ${device.tablet} {
     font-size: 1.125rem;
@@ -93,12 +97,16 @@ export const Description = styled.h3`
 `;
 
 export const Text = styled.p`
-  font-size: 1.15rem;
   color: rgb(var(--blue) / 0.5);
   font-family: "Inter";
   letter-spacing: 1px;
   line-height: 1.75rem;
   font-weight: 300;
+  font-size: 0.85rem;
+  
+  @media ${device.laptop} {
+    font-size: 1.15rem;
+  }
 `;
 
 export const SubText = styled.p`

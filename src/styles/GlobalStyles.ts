@@ -7,7 +7,7 @@ export default createGlobalStyle`
     --teal: 45 212 191; //teal-400
     --blue: 191 219 254; //blue-200
     --primary: 7 7 37; //primary-900
-    --secondary: 8 8 60; //secondary-700
+    --secondary: 10 10 62; //secondary-700
     --slate: 100 116 139; //text
   }
 
@@ -36,7 +36,7 @@ export default createGlobalStyle`
   body {
     overflow-x: hidden;
     background-color: var(--mainBackground);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;

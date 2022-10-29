@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Content, Cursor, Loader, Navbar } from "./components";
+import { Content, Cursor, Loader, Navbar } from "components/main";
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);

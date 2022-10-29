@@ -1,22 +1,23 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useToggle } from ".";
+import { useToggle } from "context";
+import type { Dispatcher } from "types";
 
 export interface ScrollCtx {
-	scrollState: boolean;
-	setScrollState: React.Dispatch<React.SetStateAction<boolean>>;
+  scroll: boolean;
+  setScroll: Dispatcher<boolean>;
 }
+export type Scroll = Pick<ScrollCtx, "scroll">;
 
 const ScrollContext = createContext<ScrollCtx>({} as ScrollCtx);
-
 export const useScroll = (): ScrollCtx => useContext(ScrollContext);
 
 const ScrollProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [scrollState, setScrollState] = useState(false);
+  const [scroll, setScroll] = useState<boolean>(false);
   const { setOpen } = useToggle();
 
   const scrollHandler = (): void => {
     window.scrollY && setOpen(false);
-    window.scrollY >= 200 ? setScrollState(true) : setScrollState(false);
+    window.scrollY >= 200 ? setScroll(true) : setScroll(false);
   };
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const ScrollProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   });
 
   return (
-    <ScrollContext.Provider value={{ scrollState, setScrollState }}>
+    <ScrollContext.Provider value={{ scroll, setScroll }}>
       {children}
     </ScrollContext.Provider>
   );
