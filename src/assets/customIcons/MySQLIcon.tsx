@@ -1,6 +1,6 @@
 import React from "react";
 
-const MySQLIcon = () => {
+const MySQLIcon = (): JSX.Element => {
   return (
     <svg
       width="101"

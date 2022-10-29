@@ -21,7 +21,7 @@ import {
   TailwindIcon,
   TypescriptIcon,
   ViteIcon,
-} from "assets/icons";
+} from "assets/customIcons";
 
 //! Nav Link
 export const navLink: string[] = ["About", "Projects", "Technologies", "Contact"];

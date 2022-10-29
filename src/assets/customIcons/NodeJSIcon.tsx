@@ -1,6 +1,6 @@
 import React from "react";
 
-const NodeJSIcon = () => {
+const NodeJSIcon = (): JSX.Element => {
   return (
     <svg
       width="92"

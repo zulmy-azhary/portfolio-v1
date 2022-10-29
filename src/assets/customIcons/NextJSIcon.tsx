@@ -1,4 +1,6 @@
-const NextJSIcon = () => {
+import React from "react";
+
+const NextJSIcon = (): JSX.Element => {
   return (
     <svg
       width="101"

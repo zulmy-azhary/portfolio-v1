@@ -1,4 +1,4 @@
-const ReactJSIcon = () => {
+const ReactJSIcon = (): JSX.Element => {
   return (
     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M50.1045 59.4105C54.9736 59.4105 58.9208 55.4634 58.9208 50.5943C58.9208 45.7252 54.9736 41.7781 50.1045 41.7781C45.2355 41.7781 41.2883 45.7252 41.2883 50.5943C41.2883 55.4634 45.2355 59.4105 50.1045 59.4105Z" fill="#61DAFB"/>
