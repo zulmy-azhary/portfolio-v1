@@ -1,28 +1,37 @@
 import React from "react";
-import styled from "styled-components";
-import { Dispatcher, TabList } from "types";
+import styled, { css } from "styled-components";
+import type { Dispatcher, TabList } from "types";
 
 const Wrapper = styled.div`
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
-  /* justify-content: center; */
   align-items: center;
   column-gap: 1rem;
   row-gap: 1rem;
 `;
 
 const Button = styled.button<{ isSelected: boolean }>`
-  color: rgb(var(--${(props) => (props.isSelected ? "primary" : "blue")}));
   border: none;
   cursor: pointer;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 5px;
-  background-color: rgb(${(props) => (props.isSelected ? "var(--teal)" : "var(--secondary) / 1")});
-  /* flex-basis: 25%; */
+  flex-grow: 1;
+  font-family: Inter;
 
-  &:hover {
-    background-color: rgb(var(--${(props) => (props.isSelected ? "" : "secondaryBackground")}));
-  }
+  ${({ isSelected }) =>
+    isSelected
+      ? css`
+          color: rgb(var(--primary));
+          background-color: rgb(var(--teal));
+        `
+      : css`
+          color: rgb(var(--blue));
+          background-color: rgb(var(--secondary) / 1);
+          &:hover {
+            background-color: rgb(var(--secondaryBackground));
+          }
+        `}
 `;
 
 interface Props {

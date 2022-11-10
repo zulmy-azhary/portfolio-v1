@@ -26,17 +26,11 @@ const Wrapper = styled.div`
   }
 
   &:before {
-    top: 1.25rem;
-    bottom: 1.25rem;
-    left: -1.25rem;
-    right: -1.25rem;
+    inset: 1.25rem -1.25rem;
   }
 
   &:after {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
   }
 
   @media ${device.laptop} {
@@ -53,6 +47,8 @@ const Wrapper = styled.div`
 const Image = styled.img`
   filter: grayscale(100%);
   width: 10rem;
+  height: 100%;
+  aspect-ratio: 1 / 1;
   margin: 0 auto;
   pointer-events: none;
   user-select: none;

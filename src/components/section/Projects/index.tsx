@@ -52,7 +52,7 @@ const ProjectCard = styled(Card)`
   margin-top: 2.5rem;
   padding: 1rem 2rem;
   min-height: 18.25rem;
-  row-gap: 1rem;
+  row-gap: 2rem;
 
   &:hover {
     ${ProjectDescription} {

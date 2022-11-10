@@ -3,9 +3,9 @@ import React from "react";
 
 type ID = number;
 type Name = string;
+export type Dispatcher<T> = React.Dispatch<React.SetStateAction<T>>;
 type TechList = "Language" | "Framework/Library" | "UI Framework/Component" | "DBMS" | "Others";
 export type TabList = "View All" | TechList;
-export type Dispatcher<T> = React.Dispatch<React.SetStateAction<T>>;
 
 //? About Me
 export type Biography = {
@@ -35,12 +35,12 @@ export type Project = {
   liveUrl: string;
 };
 
-//? Skill Item Types
+//? Technology Types
 export type Technology = {
   id: ID;
   name: Name;
   type: TechList;
   releaseDate?: number | string;
   Icon: IconType | (() => JSX.Element);
-  desc: string;
+  desc?: string;
 };
