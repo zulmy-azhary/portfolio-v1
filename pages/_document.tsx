@@ -1,6 +1,5 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import { jost, comicNeue, cookie } from "@styles/GlobalStyles";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -29,7 +28,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <body className={`${comicNeue.variable} ${jost.variable} ${cookie.variable}`}>
+        <body>
           <Main />
           <NextScript />
         </body>

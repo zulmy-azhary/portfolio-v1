@@ -5,6 +5,7 @@ import { type Scroll, useScroll } from "@context";
 import { socialMedia } from "@data";
 import type { SocialMedia } from "@types";
 import { flexCenter } from "@styles/SharedStyles";
+import { comicNeue } from "@styles/GlobalStyles";
 
 const Wrapper = styled.div`
   ${flexCenter}
@@ -205,7 +206,7 @@ const Profile: React.FC = () => {
   const { scroll } = useScroll();
 
   return (
-    <Container scroll={scroll}>
+    <Container scroll={scroll} className={comicNeue.variable}>
       <Wrapper>
         <Image src={"/assets/profile-pic.jpg"} alt="Profile" />
         <ProfileDescWrapper>

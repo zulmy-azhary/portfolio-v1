@@ -4,6 +4,7 @@ import React from "react";
 import { Scroll, useScroll } from "@context";
 import styled from "styled-components";
 import { Home, Biography, Projects, Technology, Footer, Profile, Navbar } from "@components";
+import { comicNeue, cookie, jost } from "@styles/GlobalStyles";
 
 const Container = styled.main`
   transition-property: all;
@@ -64,9 +65,10 @@ const HomePage: NextPage = () => {
     <>
       <Head>
         <title>Zulmy Azhary | Front End Developer</title>
+        <meta name="description" content="Hi! I'm Zulmy Azhary and this is my personal portfolio"/>
       </Head>
       <Navbar />
-      <Container>
+      <Container className={`${jost.variable} ${comicNeue.variable} ${cookie.variable}`}>
         <Wrapper scroll={scroll}>
           <Main>
             <Home />
