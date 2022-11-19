@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useToggle } from "context";
-import type { Dispatcher } from "types";
+import { useToggle } from "@context";
+import type { Dispatcher } from "@types";
 
 interface ScrollCtx {
   scroll: boolean;

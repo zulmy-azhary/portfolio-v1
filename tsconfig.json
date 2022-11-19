@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,11 +14,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "src",
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "incremental": true,
+    "paths": {
+      "@components" : ["src/components/main"],
+      "@components/*" : ["src/components/*"],
+      "@context" : ["src/context"],
+      "@hooks" : ["src/hooks"],
+      "@types" : ["src/types"],
+      "@icons": ["src/icons"],
+      "@data": ["src/data"],
+      "@styles/*": ["src/styles/*"],
+    }
   },
-  "include": [
-    "src",
-    "fonts.d.ts"
-  ]
+  "include": ["src", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

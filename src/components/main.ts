@@ -1,20 +1,19 @@
 // Layout
-export { default as Navbar } from "./layout/Navbar";
-export { default as Profile } from "./layout/Profile";
-export { default as Content } from "./layout/Content";
-export { default as Footer } from "./layout/Footer";
+export { default as Navbar } from "./Navbar";
+export { default as Profile } from "./Profile";
+export { default as Layout } from "./Layout";
+export { default as Footer } from "./Footer";
 
 // Section
-export { default as Home } from "./section/Home";
-export { default as Biography } from "./section/Biography";
-export { default as Projects } from "./section/Projects";
-export { default as Technology } from "./section/Technology";
+export { default as Home } from "./HomeSection";
+export { default as Biography } from "./BiographySection";
+export { default as Projects } from "./ProjectsSection";
+export { default as Technology } from "./TechnologySection";
 
 // UI
-export { default as Logo } from "./ui/Logo";
-export { default as HamburgerMenu } from "./ui/HamburgerMenu";
-export { default as TechTabList } from "./ui/TechTabList";
-export { default as TechDetailCard } from "./ui/TechDetailCard";
-export { default as TechIcon } from "./ui/TechIcon";
-export { default as Cursor } from "./ui/Cursor";
-export { default as Loader } from "./ui/Loader";
+export { default as Logo } from "./Logo";
+export { default as HamburgerMenu } from "./HamburgerMenu";
+export { default as TechTabList } from "./TechTabList";
+export { default as TechIcon } from "./TechIcon";
+export { default as Cursor } from "./Cursor";
+export { default as Loader } from "./Loader";

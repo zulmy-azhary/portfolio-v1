@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { device } from "helper/devices";
-import { roundedSm } from "styles/SharedStyles";
+import { flexCenter } from "@styles/SharedStyles";
 
 export const Container = styled.section`
   text-align: center;
@@ -8,17 +7,15 @@ export const Container = styled.section`
   max-height: max-content;
   padding: 4rem 0;
 
-  @media ${device.tablet} {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     text-align: left;
-    padding: 6rem 0;
+    padding: 2.5rem 0;
   }
 `;
 
 export const Card = styled.div`
-  display: flex;
+  ${flexCenter}
   position: relative;
-  justify-content: center;
-  align-items: center;
   border-radius: 0.375rem /* 6px */;
   background-color: rgb(var(--secondary) / 1);
   color: rgb(var(--blue) / 0.5);
@@ -26,7 +23,7 @@ export const Card = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    ${roundedSm}
+    border-radius: 0.5rem 0;
     transform: translateY(-0.5rem);
     background-color: rgb(var(--secondaryBackground));
   }
@@ -34,7 +31,7 @@ export const Card = styled.div`
 
 export const Heading = styled.h1`
   position: relative;
-  margin: 1.25rem 0;
+  margin: 0.5rem 0 1.5rem;
   font-size: 1.875rem /* 30px */;
   line-height: 2.25rem /* 36px */;
   font-weight: 400;
@@ -49,15 +46,12 @@ export const Heading = styled.h1`
     height: 2px;
   }
 
-  @media ${device.tablet} {
-    font-size: 3rem /* 48px */;
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    font-size: 2.25rem /* 48px */;
     line-height: 1;
   }
 
-  @media ${device.laptop} {
-    margin-top: 1.25rem;
-    font-size: 3rem;
-
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     &:after {
       width: 8rem /* 128px */;
     }
@@ -69,13 +63,9 @@ export const SubHeading = styled.h2`
   font-weight: 500;
   font-size: 1rem;
 
-  @media ${device.tablet} {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  @media ${device.laptop} {
-    font-size: 1.25rem;
   }
 `;
 
@@ -84,15 +74,14 @@ export const Description = styled.h3`
   text-align: center;
   margin: 1.5rem 0 2rem;
 
-  @media ${device.tablet} {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: 1.125rem /* 18px */;
     line-height: 1.75rem /* 28px */;
   }
 
-  @media ${device.laptop} {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     text-align: left;
-    font-size: 1.5rem /* 24px */;
-    line-height: 2rem /* 32px */;
+    font-size: 1.25rem;
   }
 `;
 
@@ -103,9 +92,9 @@ export const Text = styled.p`
   line-height: 1.75rem;
   font-weight: 300;
   font-size: 0.85rem;
-  
-  @media ${device.laptop} {
-    font-size: 1.15rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    font-size: 1rem;
   }
 `;
 
