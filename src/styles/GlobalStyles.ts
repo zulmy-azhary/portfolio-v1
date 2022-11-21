@@ -7,7 +7,7 @@ export const jost = Jost({
   weight: "400",
   subsets: ["latin"],
   fallback: ["Inter", "Helvetica", "Arial", "sans-serif"],
-})
+});
 
 export const comicNeue = ComicNeue({
   variable: "--comicNeue",
@@ -15,7 +15,7 @@ export const comicNeue = ComicNeue({
   weight: "400",
   subsets: ["latin"],
   fallback: ["Inter", "Helvetica", "Arial", "sans-serif"],
-})
+});
 
 export const cookie = Cookie({
   variable: "--cookie",
@@ -23,18 +23,27 @@ export const cookie = Cookie({
   weight: "400",
   subsets: ["latin"],
   fallback: ["Inter", "Helvetica", "Arial", "sans-serif"],
-})
+});
 
 export default createGlobalStyle`
   :root {
-    --bgMain: ${props => props.theme.colors.bgMain};
+    --bgMain: ${(props) => props.theme.colors.bgMain};
     --secondaryBackground: 18, 25, 70;
     --teal: 45 212 191; //teal-400
     --blue: 191 219 254; //blue-200
     --primary: 7 7 37; //primary-900
     --secondary: 10 10 62; //secondary-700
     --slate: 100 116 139; //text
-    --shadow: ${props => props.theme.shadow};
+    --shadow: ${(props) => props.theme.shadow};
+
+    /* Breakpoints */
+    --mobileS: ${(props) => props.theme.breakpoints.mobileS};
+    --mobileM: ${(props) => props.theme.breakpoints.mobileM};
+    --mobileL: ${(props) => props.theme.breakpoints.mobileL};
+    --tablet: ${(props) => props.theme.breakpoints.tablet};
+    --laptop: ${(props) => props.theme.breakpoints.laptop};
+    --laptopL: ${(props) => props.theme.breakpoints.laptopL};
+    --desktop: ${(props) => props.theme.breakpoints.desktop};
   }
 
   * {
