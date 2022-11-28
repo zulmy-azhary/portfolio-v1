@@ -52,7 +52,7 @@ const Image = styled.img`
   pointer-events: none;
   user-select: none;
   transition-duration: 300ms;
-  outline: 0 solid rgb(var(--teal));
+  outline: 0 solid var(--teal);
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 15rem;
@@ -130,7 +130,7 @@ const Container = styled.section<Scroll>`
     ${Wrapper} {
       &:before,
       &:after {
-        border-color: rgb(var(--teal));
+        border-color: var(--teal);
       }
     }
 
@@ -142,7 +142,7 @@ const Container = styled.section<Scroll>`
     }
 
     ${ProfileSubText} {
-      color: rgb(var(--teal));
+      color: var(--teal);
     }
 
     ${ProfileMainText} {
@@ -150,8 +150,8 @@ const Container = styled.section<Scroll>`
     }
 
     ${SocialMediaIcon} {
-      border: 1px solid rgb(var(--teal));
-      color: rgb(var(--teal));
+      border: 1px solid var(--teal);
+      color: var(--teal);
     }
   }
 
@@ -167,7 +167,7 @@ const Container = styled.section<Scroll>`
     width: 30%;
 
     &:hover {
-      border-color: rgb(var(--teal));
+      border-color: var(--teal);
     }
   }
 

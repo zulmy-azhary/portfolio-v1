@@ -66,6 +66,7 @@ const HomePage: NextPage = () => {
       <Head>
         <title>Zulmy Azhary | Front End Developer</title>
         <meta name="description" content="Hi! I'm Zulmy Azhary and this is my personal portfolio"/>
+        <meta name="theme-color" content="#070731" />
       </Head>
       <Navbar />
       <Container className={`${jost.variable} ${comicNeue.variable} ${cookie.variable}`}>

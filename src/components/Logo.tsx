@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Svg = styled(motion.svg)`
   width: 36px;
   height: 36px;
-  fill: none;
+  fill: var(--bgMain);
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 42px;
@@ -22,12 +22,12 @@ const Svg = styled(motion.svg)`
 `;
 
 const Border = styled(motion.path)`
-  stroke: rgb(var(--teal));
+  stroke: var(--teal);
   stroke-width: 3px;
 `;
 
 const Letter = styled(motion.path)`
-  fill: rgb(var(--teal));
+  fill: var(--teal);
 `;
 
 const Logo: React.FC = () => {

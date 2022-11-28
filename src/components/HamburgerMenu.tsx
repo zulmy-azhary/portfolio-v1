@@ -20,7 +20,7 @@ const Line = styled.div<Toggle>`
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
-  background-color: rgb(var(--teal));
+  background-color: var(--teal);
 `;
 
 const TopLine = styled(Line)`

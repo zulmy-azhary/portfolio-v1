@@ -28,8 +28,8 @@ export const cookie = Cookie({
 export default createGlobalStyle`
   :root {
     --bgMain: ${(props) => props.theme.colors.bgMain};
-    --secondaryBackground: 18, 25, 70;
-    --teal: 45 212 191; //teal-400
+    --bgSecondary: ${(props) => props.theme.colors.bgSecondary};
+    --teal: ${props => props.theme.colors.teal};
     --blue: 191 219 254; //blue-200
     --primary: 7 7 37; //primary-900
     --secondary: 10 10 62; //secondary-700
@@ -56,7 +56,7 @@ export default createGlobalStyle`
     &:focus-visible {
       outline-width: 2px;
       outline-style: dashed;
-      outline-color: rgb(var(--teal));
+      outline-color: var(--teal);
       outline-offset: 5px;
       transition-duration: 300ms;
     }
@@ -64,7 +64,7 @@ export default createGlobalStyle`
 
   ::selection {
     background-color: rgb(var(--slate) / 0.3);
-    color: rgb(var(--teal));
+    color: var(--teal);
   }
 
   body {
@@ -86,12 +86,17 @@ export default createGlobalStyle`
   }
 
   h2 {
-    color: rgb(var(--teal));
+    color: var(--teal);
   }
 
-  h3 {
-    font-family: var(--comicNeue);
-    color: rgb(var(--blue) / 0.5);
+  a {
+    text-decoration: none;
+    color: rgb(var(--blue));
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      color: var(--teal);
+    }
   }
 
   ::-webkit-scrollbar {
@@ -104,7 +109,7 @@ export default createGlobalStyle`
     border: 3px solid transparent;
     border-radius: 0.75rem;
     background-clip: padding-box;
-    background-color: rgb(var(--teal));
+    background-color: var(--teal);
 
     &:hover {
       background-color: rgb(var(--blue));

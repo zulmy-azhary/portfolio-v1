@@ -13,7 +13,7 @@ const Circle = styled(motion.div)`
   top: 0;
   width: calc(${SIZE} * 2px);
   height: calc(${SIZE} * 2px);
-  border: 2px solid rgb(var(--teal));
+  border: 2px solid var(--teal);
   border-radius: ${SIZE}px;
   mix-blend-mode: difference;
   pointer-events: none;

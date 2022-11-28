@@ -22,9 +22,9 @@ const Wrapper = styled.footer`
   padding: 1.5rem 0;
 
   &:hover {
-    border-color: rgb(var(--teal));
+    border-color: var(--teal);
     ${Credit} {
-      color: rgb(var(--teal));
+      color: var(--teal);
     }
   }
 

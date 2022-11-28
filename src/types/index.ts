@@ -29,7 +29,7 @@ export type Project = {
   id: ID;
   name: Name;
   image: string;
-  description: string;
+  description?: string;
   tech: string[];
   repo: string;
   liveUrl: string;

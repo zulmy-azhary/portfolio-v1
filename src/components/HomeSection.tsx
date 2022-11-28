@@ -16,14 +16,22 @@ const Container = styled.section`
   }
 `;
 
-const Description = styled.h3`
+const HomeHeading = styled(Heading)`
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    font-size: 3rem;
+  }
+`;
+
+const Description = styled.p`
+  font-family: var(--comicNeue);
+  color: rgb(var(--blue) / 0.5);
   line-height: 2;
   font-weight: 500;
   transition-duration: 300ms;
   margin: 1.5rem 0 1.75rem;
 
   &:hover {
-    color: rgb(var(--teal));
+    color: var(--teal);
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
@@ -48,12 +56,12 @@ const Home: React.FC = () => {
   return (
     <Container id="home">
       <SubHeading>Introduction</SubHeading>
-      <Heading>Front End Developer</Heading>
+      <HomeHeading>Front End Developer</HomeHeading>
       <Description>
         Design, building, and maintaining interactive and responsive websites especially for modern
         websites.
       </Description>
-      <TextName>Zulmy Azhary</TextName>
+      {/* <TextName>Zulmy Azhary</TextName> */}
     </Container>
   );
 };

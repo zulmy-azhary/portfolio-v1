@@ -27,13 +27,13 @@ const Button = styled.button<{ isSelected: boolean }>`
     isSelected
       ? css`
           color: rgb(var(--primary));
-          background-color: rgb(var(--teal));
+          background-color: var(--teal);
         `
       : css`
           color: rgb(var(--blue));
           background-color: rgb(var(--secondary) / 1);
           &:hover {
-            background-color: rgb(var(--secondaryBackground));
+            background-color: var(--bgSecondary);
           }
         `}
 `;

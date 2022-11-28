@@ -134,10 +134,6 @@ const NavItem = styled(({ isOpen, ...props }) => <motion.li {...props} />)<Toggl
     width: 100%;
   }
 
-  &:hover {
-    color: rgb(var(--teal));
-  }
-
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -158,12 +154,14 @@ const Navbar: React.FC = () => {
     <Header>
       <Nav isOpen={isOpen}>
         <Link
+          href="#home"
           to="home"
           spy={true}
           smooth={"easeInOutQuart"}
           duration={900}
           onClick={isClosed}
           tabIndex={0}
+          aria-label="My personal logo"
         >
           <BrandLogo />
         </Link>
@@ -177,6 +175,7 @@ const Navbar: React.FC = () => {
             {navLink.map((item: string) => (
               <NavItem key={item} variants={navItemVariants} isOpen={isOpen} tabIndex={0}>
                 <Link
+                  href={`#${item.toLowerCase()}`}
                   to={item.toLowerCase()}
                   spy={true}
                   smooth={"easeInOutQuart"}
