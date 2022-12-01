@@ -25,7 +25,6 @@ const Icon = styled(ImSpinner9)`
 const wrapperVariants = {
   exit: {
     opacity: 0,
-    y: "-30%",
     transition: {
       duration: 0.5,
       ease: "easeInOut",

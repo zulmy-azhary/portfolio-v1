@@ -1,10 +1,20 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import { Scroll, useScroll } from "@context";
 import styled from "styled-components";
-import { Home, Biography, Projects, Technology, Footer, Profile, Navbar } from "@components";
-import { comicNeue, cookie, jost } from "@styles/GlobalStyles";
+import {
+  Home,
+  Biography,
+  Projects,
+  Technology,
+  Footer,
+  Profile,
+  Navbar,
+  Loader,
+} from "@components";
+import { comicNeue, jost } from "@styles/GlobalStyles";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Container = styled.main`
   transition-property: all;
@@ -60,29 +70,43 @@ const Main = styled.div`
 
 const HomePage: NextPage = () => {
   const { scroll } = useScroll();
+  const [isLoading, setLoading] = useState<boolean>(true);
 
   return (
     <>
       <Head>
         <title>Zulmy Azhary | Front End Developer</title>
-        <meta name="description" content="Hi! I'm Zulmy Azhary and this is my personal portfolio"/>
+        <meta name="description" content="Hi! I'm Zulmy Azhary and this is my personal portfolio" />
         <meta name="theme-color" content="#070731" />
       </Head>
-      <Navbar />
-      <Container className={`${jost.variable} ${comicNeue.variable} ${cookie.variable}`}>
-        <Wrapper scroll={scroll}>
-          <Main>
-            <Home />
-            <Biography />
-            <Projects />
-            <Technology />
-          </Main>
-          <Footer />
-        </Wrapper>
-        <ProfileWrapper scroll={scroll}>
-          <Profile />
-        </ProfileWrapper>
-      </Container>
+      <AnimatePresence mode="wait" initial={false}>
+        {isLoading ? (
+          <Loader key="loader" setLoading={setLoading} />
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.3 }}
+          >
+            <Navbar />
+            <Container className={`${jost.variable} ${comicNeue.variable}`}>
+              <Wrapper scroll={scroll}>
+                <Main>
+                  <Home />
+                  <Biography />
+                  <Projects />
+                  <Technology />
+                </Main>
+                <Footer />
+              </Wrapper>
+              <ProfileWrapper scroll={scroll}>
+                <Profile />
+              </ProfileWrapper>
+            </Container>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

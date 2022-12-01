@@ -146,7 +146,7 @@ const ProjectItem: React.FC<Props> = ({ project }) => {
       initial={{ opacity: 0, x: -100 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ ease: "easeInOut", duration: 0.6 }}
-      viewport={{ once: true, margin: "-350px" }}
+      viewport={{ once: true, margin: "-300px" }}
     >
       <ContentWrapper>
         <SubHeader>Featured Project</SubHeader>

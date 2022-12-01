@@ -151,7 +151,8 @@ const Navbar: React.FC = () => {
   const menuRef = useClickOutside(isOpen, isClosed);
 
   return (
-    <Header>
+    <Header as={motion.header} initial={{ opacity: 0 }}
+    animate={{ opacity: 1, transition: { duration: 0.5 } }}>
       <Nav isOpen={isOpen}>
         <Link
           href="#home"

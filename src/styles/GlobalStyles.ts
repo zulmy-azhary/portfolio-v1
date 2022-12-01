@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { Jost, Comic_Neue as ComicNeue, Cookie } from "@next/font/google";
+import { Jost, Comic_Neue as ComicNeue } from "@next/font/google";
 
 export const jost = Jost({
   variable: "--jost",
@@ -11,14 +11,6 @@ export const jost = Jost({
 
 export const comicNeue = ComicNeue({
   variable: "--comicNeue",
-  style: "normal",
-  weight: "400",
-  subsets: ["latin"],
-  fallback: ["Inter", "Helvetica", "Arial", "sans-serif"],
-});
-
-export const cookie = Cookie({
-  variable: "--cookie",
   style: "normal",
   weight: "400",
   subsets: ["latin"],
@@ -92,7 +84,7 @@ export default createGlobalStyle`
   a {
     text-decoration: none;
     color: rgb(var(--blue));
-    transition: 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
 
     &:hover {
       color: var(--teal);

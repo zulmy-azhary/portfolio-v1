@@ -207,7 +207,12 @@ const Profile: React.FC = () => {
 
   return (
     <Container scroll={scroll} className={comicNeue.variable}>
-      <Wrapper>
+      <Wrapper
+        as={motion.div}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ ease: "easeInOut", duration: 0.6, delay: 0.3 }}
+      >
         <Image src={"/assets/profile-pic.jpg"} alt="Profile" />
         <ProfileDescWrapper>
           <ProfileSubText>Hi there! I'am</ProfileSubText>
