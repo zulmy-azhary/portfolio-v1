@@ -36,6 +36,8 @@ export default createGlobalStyle`
     --laptop: ${(props) => props.theme.breakpoints.laptop};
     --laptopL: ${(props) => props.theme.breakpoints.laptopL};
     --desktop: ${(props) => props.theme.breakpoints.desktop};
+
+    overflow-x: hidden;
   }
 
   * {
