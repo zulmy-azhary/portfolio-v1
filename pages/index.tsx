@@ -13,7 +13,6 @@ import {
   Navbar,
   Loader,
 } from "@components";
-import { comicNeue, jost } from "@styles/GlobalStyles";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Container = styled.main`
@@ -90,7 +89,7 @@ const HomePage: NextPage = () => {
             transition={{ ease: "easeInOut", duration: 0.3 }}
           >
             <Navbar />
-            <Container className={`${jost.variable} ${comicNeue.variable}`}>
+            <Container>
               <Wrapper scroll={scroll}>
                 <Main>
                   <Home />

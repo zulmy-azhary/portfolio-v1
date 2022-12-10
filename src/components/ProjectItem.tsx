@@ -74,13 +74,13 @@ const SubHeader = styled.h4`
   color: rgb(var(--blue));
   text-transform: none;
   font-family: var(--comicNeue);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 300;
 `;
 
 const Header = styled.h2`
   font-weight: 500;
-  font-size: 1.875rem;
+  font-size: 1.6rem;
 `;
 
 const ProjectDescription = styled(Text)`
@@ -119,6 +119,7 @@ const Item = styled.a`
 const Image = styled.img`
   width: 100%;
   max-width: none;
+  user-select: none;
 `;
 
 const TechList = styled.li`

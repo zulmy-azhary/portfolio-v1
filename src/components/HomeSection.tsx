@@ -18,7 +18,7 @@ const Container = styled.section`
 
 const HomeHeading = styled(Heading)`
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 `;
 

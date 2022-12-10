@@ -57,7 +57,7 @@ export const Heading = styled.h1`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: 2.25rem /* 48px */;
+    font-size: 2rem /* 48px */;
     line-height: 1;
   }
 
@@ -72,11 +72,6 @@ export const SubHeading = styled.h2`
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1rem;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
 `;
 
 export const Description = styled.p`
@@ -99,7 +94,7 @@ export const Description = styled.p`
 
 export const Text = styled.p`
   color: rgb(var(--blue) / 0.5);
-  font-family: "Inter";
+  font-family: Inter;
   letter-spacing: 1px;
   line-height: 1.75rem;
   font-weight: 300;

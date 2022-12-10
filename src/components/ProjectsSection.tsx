@@ -9,7 +9,7 @@ const Wrapper = styled.ul`
   position: relative;
   display: flex;
   flex-direction: column;
-  row-gap: 3rem;
+  row-gap: 4rem;
   padding-top: 1.5rem;
 `;
 

@@ -1,18 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import { Jost, Comic_Neue as ComicNeue } from "@next/font/google";
-
-export const jost = Jost({
-  variable: "--jost",
-  style: "normal",
-  weight: "400",
-  subsets: ["latin"],
-  fallback: ["Inter", "Helvetica", "Arial", "sans-serif"],
-});
+import { Comic_Neue as ComicNeue } from "@next/font/google";
 
 export const comicNeue = ComicNeue({
   variable: "--comicNeue",
   style: "normal",
-  weight: "400",
+  weight: ["300", "400", "700"],
   subsets: ["latin"],
   fallback: ["Inter", "Helvetica", "Arial", "sans-serif"],
 });
@@ -45,6 +37,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     letter-spacing: 0.05em;
+    font-family: "Comic Neue", Inter, "Helvetica", Arial, sans-serif;
 
     /* Focus */
     &:focus-visible {
@@ -72,7 +65,7 @@ export default createGlobalStyle`
   }
 
   h1, h2, p, li {
-    font-family: var(--jost);
+    font-family: Inter;
   }
 
   h1 {
@@ -86,7 +79,7 @@ export default createGlobalStyle`
   a {
     text-decoration: none;
     color: rgb(var(--blue));
-    transition: color 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
 
     &:hover {
       color: var(--teal);

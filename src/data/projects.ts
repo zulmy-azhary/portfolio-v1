@@ -38,4 +38,12 @@ export const projects: Project[] = [
     repo: "https://github.com/zulmy-azhary/rest-countries",
     liveUrl: "https://zoel-restcountries.vercel.app/",
   },
+  {
+    id: 5,
+    name: "Multistep Form",
+    image: "/assets/projects/multistep-form.jpg",
+    tech: ["Typescript", "ReactJS", "Styled Components", "React-Hook-Form", "Vite"],
+    repo: "https://github.com/zulmy-azhary/multistep-form",
+    liveUrl: "https://react-multistepform.vercel.app/",
+  },
 ];

@@ -5,7 +5,6 @@ import { type Scroll, useScroll } from "@context";
 import { socialMedia } from "@data";
 import type { SocialMedia } from "@types";
 import { flexCenter } from "@styles/SharedStyles";
-import { comicNeue } from "@styles/GlobalStyles";
 
 const Wrapper = styled.div`
   ${flexCenter}
@@ -88,7 +87,6 @@ const ProfileMainText = styled(ProfileSubText)`
 
 const SocialMediaIcon = styled.a`
   line-height: 0;
-  transition-duration: 300ms;
   color: rgb(var(--blue));
   font-size: 1.5rem;
   color: rgb(var(--blue) / 0.75);
@@ -135,7 +133,6 @@ const Container = styled.section<Scroll>`
     }
 
     ${Image} {
-      border-radius: 1rem 0;
       filter: grayscale(0);
       outline-width: 1px;
       outline-offset: 5px;
@@ -192,7 +189,7 @@ const SocialMediaWrapper = styled.div`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
-    padding: 0 1rem;
+    padding: 0 0.25rem;
     justify-content: space-evenly;
   }
 `;
@@ -206,7 +203,7 @@ const Profile: React.FC = () => {
   const { scroll } = useScroll();
 
   return (
-    <Container scroll={scroll} className={comicNeue.variable}>
+    <Container scroll={scroll}>
       <Wrapper
         as={motion.div}
         initial={{ opacity: 0, y: 50 }}
