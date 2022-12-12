@@ -73,7 +73,7 @@ const ProfileSubText = styled.p`
   transition-duration: 300ms;
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 `;
 
@@ -81,7 +81,7 @@ const ProfileMainText = styled(ProfileSubText)`
   font-weight: 600;
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 `;
 
@@ -207,7 +207,7 @@ const Profile: React.FC = () => {
       <Wrapper
         as={motion.div}
         initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeInOut", duration: 0.6, delay: 0.3 }}
       >
         <Image src={"/assets/profile-pic.jpg"} alt="Profile" />

@@ -6,11 +6,6 @@ export const Container = styled.section<{ isVisible?: boolean }>`
   height: fit-content;
   max-height: max-content;
   padding: 4rem 0;
-  /* visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transform: ${(props) => (props.isVisible ? "none" : "translateY(5%)")};
-  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-  transition-delay: 0.2s; */
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     text-align: left;
@@ -41,9 +36,9 @@ export const Card = styled.div`
 
 export const Heading = styled.h1`
   position: relative;
-  margin: 0.5rem 0 1.5rem;
-  font-size: 1.875rem /* 30px */;
-  line-height: 2.25rem /* 36px */;
+  margin-top: 0.125rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem /* 30px */;
   font-weight: 400;
 
   &:after {
@@ -56,12 +51,11 @@ export const Heading = styled.h1`
     height: 2px;
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     font-size: 2rem /* 48px */;
     line-height: 1;
-  }
+    margin-top: 0.5rem;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     &:after {
       width: 8rem /* 128px */;
     }
@@ -71,11 +65,16 @@ export const Heading = styled.h1`
 export const SubHeading = styled.h2`
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.75rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    font-size: 1rem;
+  }
 `;
 
 export const Description = styled.p`
   font-family: var(--comicNeue);
+  font-size: 0.9rem;
   color: rgb(var(--blue) / 0.5);
   font-weight: 500;
   text-align: center;
@@ -83,12 +82,12 @@ export const Description = styled.p`
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     text-align: right;
-    font-size: 1.125rem /* 18px */;
-    line-height: 1.75rem /* 28px */;
+    font-size: 1rem /* 18px */;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     text-align: left;
+    font-size: 1.125rem;
   }
 `;
 

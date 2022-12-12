@@ -16,13 +16,11 @@ const Wrapper = styled.div`
 const IconCard = styled(Card)`
   grid-column: span 4 / span 4;
   grid-row: span 1 / span 1;
-  height: 6rem;
   cursor: pointer;
-  padding: 0;
 
   /* The icons */
   svg {
-    scale: 0.6;
+    transform: scale(0.5);
   }
   &:hover * {
     cursor: pointer;
@@ -31,20 +29,18 @@ const IconCard = styled(Card)`
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-column: span 3 / span 3;
-    height: 8rem;
-
-    svg {
-      scale: 0.7;
-    }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
     grid-column: span 2 / span 2;
-    height: 7.5rem;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     height: 12rem;
+
+    svg {
+      transform: scale(1);
+    }
   }
 `;
 

@@ -28,28 +28,22 @@ const Description = styled.p`
   line-height: 2;
   font-weight: 500;
   transition-duration: 300ms;
-  margin: 1.5rem 0 1.75rem;
+  margin-bottom: 1.75rem;
 
   &:hover {
     color: var(--teal);
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     font-size: 1.25rem;
-    line-height: 1.75rem;
+    line-height: 2rem;
+    margin: 1.5rem 0 3rem;
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
     font-size: 1.5rem;
     line-height: 2.25rem;
-    margin-bottom: 3rem;
   }
-`;
-
-const TextName = styled.p`
-  color: rgb(var(--blue));
-  font-family: var(--cookie);
-  font-size: 3rem;
 `;
 
 const Home: React.FC = () => {
@@ -61,7 +55,6 @@ const Home: React.FC = () => {
         Design, building, and maintaining interactive and responsive websites especially for modern
         websites.
       </Description>
-      {/* <TextName>Zulmy Azhary</TextName> */}
     </Container>
   );
 };

@@ -17,10 +17,7 @@ const Button = styled.button<{ isSelected: boolean }>`
   padding: 0.5rem 1.25rem;
   border-radius: 2px;
   flex-grow: 1;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
-    font-size: 0.875rem;
-  }
+  font-size: 0.75rem;
 
   ${({ isSelected }) =>
     isSelected

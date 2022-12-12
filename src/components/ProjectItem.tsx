@@ -12,7 +12,7 @@ const ContentWrapper = styled.div`
   grid-area: 1 / 1 / -1 / 7;
   display: none;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     display: block;
   }
 `;
@@ -86,16 +86,17 @@ const Header = styled.h2`
 const ProjectDescription = styled(Text)`
   color: rgb(var(--blue) / 0.75);
   transition-duration: 300ms;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-align: justify;
 `;
 
 const ProjectCard = styled(Card)`
   flex-direction: column;
   margin-top: 2rem;
-  padding: 1rem 2rem;
+  padding: 1.5rem;
   min-height: 18.25rem;
   row-gap: 2rem;
+  justify-content: space-between;
 
   &:hover {
     ${ProjectDescription} {
@@ -107,10 +108,10 @@ const ProjectCard = styled(Card)`
 const Item = styled.a`
   color: rgb(var(--blue));
   font-size: 1.5rem;
-  transition-duration: 300ms;
   line-height: 0;
-
+  
   &:hover * {
+    transition: color .3s;
     cursor: pointer;
     color: var(--teal);
   }
@@ -118,8 +119,22 @@ const Item = styled.a`
 
 const Image = styled.img`
   width: 100%;
-  max-width: none;
   user-select: none;
+  object-fit: contain;
+  height: 15.25rem;
+  
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    height: 29.25rem;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptop}) {
+    height: 27rem;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.laptopL}) {
+    height: 19rem;
+  }
+
 `;
 
 const TechList = styled.li`

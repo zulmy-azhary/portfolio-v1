@@ -3,9 +3,14 @@ import { FaHeart } from "react-icons/fa";
 import styled from "styled-components";
 
 const Credit = styled.p`
-  font-size: 0.95rem;
+  font-family: var(--comicNeue);
+  font-size: 0.875rem;
   color: rgb(var(--blue) / 0.75);
-  transition-duration: 500ms;
+  transition: color .5s;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Author = styled(Credit)`
@@ -13,7 +18,7 @@ const Author = styled(Credit)`
 `;
 
 const Wrapper = styled.footer`
-  transition-duration: 500ms;
+  transition: border-color .5s;
   position: relative;
   border-top-width: 1px;
   border-top-style: solid;
