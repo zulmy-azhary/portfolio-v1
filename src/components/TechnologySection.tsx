@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
-import { TechIcon, TechTabList } from "@components";
-import { Container, Description, Heading, SubHeading } from "@styles/SharedComponents";
+import { Section, TechIcon, TechTabList } from "@components";
+import { Description, Heading, SubHeading } from "@styles/SharedComponents";
 import type { TabList } from "@types";
 
 const Wrapper = styled.div`
@@ -15,7 +15,7 @@ const TechStack: React.FC = () => {
   const [tabSelected, setTabSelected] = useState<TabList>("View All");
 
   return (
-    <Container id="technologies">
+    <Section id="technologies">
       <SubHeading>Tools & Tech</SubHeading>
       <Heading>Tech Stack</Heading>
       <Description>
@@ -27,7 +27,7 @@ const TechStack: React.FC = () => {
           <TechIcon key={tabSelected} tabSelected={tabSelected} />
         </AnimatePresence>
       </Wrapper>
-    </Container>
+    </Section>
   );
 };
 

@@ -6,7 +6,6 @@ interface ScrollCtx {
   scroll: boolean;
   setScroll: Dispatcher<boolean>;
 }
-export type Scroll = Pick<ScrollCtx, "scroll">;
 
 const ScrollContext = createContext<ScrollCtx>({} as ScrollCtx);
 export const useScroll = (): ScrollCtx => useContext(ScrollContext);

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Container, Description, Heading, SubHeading } from "@styles/SharedComponents";
+import { Description, Heading, SubHeading } from "@styles/SharedComponents";
 import type { Project } from "@types";
 import { projects } from "@data";
-import { ProjectItem } from "@components";
+import { ProjectItem, Section } from "@components";
 
 const Wrapper = styled.ul`
   position: relative;
@@ -15,7 +15,7 @@ const Wrapper = styled.ul`
 
 const Projects: React.FC = () => {
   return (
-    <Container id="projects">
+    <Section id="projects">
       <SubHeading>Portfolio</SubHeading>
       <Heading>Featured Projects</Heading>
       <Description>Here's something that I've built</Description>
@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
           );
         })}
       </Wrapper>
-    </Container>
+    </Section>
   );
 };
 

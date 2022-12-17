@@ -12,7 +12,7 @@ const ContentWrapper = styled.div`
   grid-area: 1 / 1 / -1 / 7;
   display: none;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
     display: block;
   }
 `;
@@ -20,6 +20,17 @@ const ContentWrapper = styled.div`
 const ImageWrapper = styled.div`
   position: relative;
   grid-area: 1 / 7 / -1 / -1;
+  transition-duration: 300ms;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
+    &:hover {
+      transform: none;
+    }
+  }
 `;
 
 const Link = styled.div`
@@ -36,8 +47,12 @@ const TechWrapper = styled.ul`
   column-gap: 1.125rem;
   row-gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: flex-end;
   width: 100%;
+  justify-content: center;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
+    justify-content: flex-end;
+  }
 `;
 
 const List = styled(motion.li)`
@@ -65,7 +80,9 @@ const List = styled(motion.li)`
     }
 
     ${TechWrapper} {
+      @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
       justify-content: flex-start;
+    }
     }
   }
 `;
@@ -162,7 +179,7 @@ const ProjectItem: React.FC<Props> = ({ project }) => {
       initial={{ opacity: 0, x: -100 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ ease: "easeInOut", duration: 0.6 }}
-      viewport={{ once: true, margin: "-300px" }}
+      viewport={{ once: true, margin: "-150px" }}
     >
       <ContentWrapper>
         <SubHeader>Featured Project</SubHeader>

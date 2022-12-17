@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Heading, SubHeading } from "@styles/SharedComponents";
+import { motion } from "framer-motion";
+import { fadeIn } from "@styles/motionVariants";
+import { defaultTransition } from "../styles/motionVariants";
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -48,7 +51,13 @@ const Description = styled.p`
 
 const Home: React.FC = () => {
   return (
-    <Container id="home">
+    <Container
+      id="home"
+      variants={fadeIn}
+      initial="initial"
+      animate="animate"
+      transition={transition}
+    >
       <SubHeading>Introduction</SubHeading>
       <HomeHeading>Front End Developer</HomeHeading>
       <Description>
@@ -57,6 +66,11 @@ const Home: React.FC = () => {
       </Description>
     </Container>
   );
+};
+
+const transition = {
+  ...defaultTransition,
+  delay: 0.4,
 };
 
 export default Home;

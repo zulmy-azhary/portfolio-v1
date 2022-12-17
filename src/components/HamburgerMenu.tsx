@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { type Toggle, useToggle } from "@context";
+import { useToggle } from "@context";
+import { motion } from "framer-motion";
+import { defaultTransition, fadeIn } from "@styles/motionVariants";
 
-const Container = styled.div`
+type Toggle = {
+  $isOpen: boolean;
+};
+
+const Container = styled(motion.div)`
   width: 1.5rem;
   height: 1.5rem;
   display: flex;
@@ -25,17 +31,17 @@ const Line = styled.div<Toggle>`
 
 const TopLine = styled(Line)`
   transform-origin: top right;
-  transform: ${({ isOpen }) => isOpen && "rotate(-45deg) translateX(-1px)"};
+  transform: ${({ $isOpen }) => $isOpen && "rotate(-45deg) translateX(-1px)"};
 `;
 
 const CenterLine = styled(Line)`
-  transform: ${({ isOpen }) => isOpen && "translateX(20px)"};
-  opacity: ${({ isOpen }) => (isOpen ? 0 : 1)};
+  transform: ${({ $isOpen }) => $isOpen && "translateX(20px)"};
+  opacity: ${({ $isOpen }) => ($isOpen ? 0 : 1)};
 `;
 
 const BottomLine = styled(Line)`
   transform-origin: top right;
-  transform: ${({ isOpen }) => isOpen && "rotate(45deg) translateX(1px)"};
+  transform: ${({ $isOpen }) => $isOpen && "rotate(45deg) translateX(1px)"};
 `;
 
 interface Props {
@@ -46,10 +52,15 @@ const HamburgerMenu: React.FC<Props> = ({ onClick }) => {
   const { isOpen } = useToggle();
 
   return (
-    <Container onClick={onClick}>
-      <TopLine isOpen={isOpen} />
-      <CenterLine isOpen={isOpen} />
-      <BottomLine isOpen={isOpen} />
+    <Container
+      onClick={onClick}
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ ...defaultTransition, delay: 0.2 }}
+    >
+      <TopLine $isOpen={isOpen} />
+      <CenterLine $isOpen={isOpen} />
+      <BottomLine $isOpen={isOpen} />
     </Container>
   );
 };

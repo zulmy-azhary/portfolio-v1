@@ -5,8 +5,12 @@ import { motion } from "framer-motion";
 import { HamburgerMenu } from "@components";
 import Logo from "@components/Logo";
 import { navLink } from "@data";
-import { type Toggle, useToggle } from "@context";
+import { useToggle } from "@context";
 import { useClickOutside } from "@hooks";
+
+type Toggle = {
+  $isOpen: boolean;
+};
 
 const Header = styled.header`
   width: 100%;
@@ -34,12 +38,11 @@ const Nav = styled.nav<Toggle>`
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: rgb(var(--primary) / 0.2);
     backdrop-filter: blur(4px);
     z-index: 9;
 
-    ${({ isOpen }) =>
-      isOpen
+    ${({ $isOpen }) =>
+      $isOpen
         ? css`
             width: 25%;
           `
@@ -53,18 +56,18 @@ const Nav = styled.nav<Toggle>`
     padding: 1.5rem 2.25rem;
 
     &:before {
-      width: ${({ isOpen }) => isOpen && "50%"};
+      width: ${({ $isOpen }) => $isOpen && "50%"};
     }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     &:before {
-      width: ${({ isOpen }) => isOpen && "70%"};
+      width: ${({ $isOpen }) => $isOpen && "70%"};
     }
   }
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
     &:before {
-      width: ${({ isOpen }) => isOpen && "65%"};
+      width: ${({ $isOpen }) => $isOpen && "65%"};
     }
   }
 `;
@@ -84,7 +87,7 @@ const BrandLogo = styled(Logo)`
   }
 `;
 
-const List = styled(({ isOpen, ...props }) => <motion.ul {...props} />)<Toggle>`
+const List = styled(motion.ul)`
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
@@ -95,20 +98,16 @@ const List = styled(({ isOpen, ...props }) => <motion.ul {...props} />)<Toggle>`
   row-gap: 1rem;
   column-gap: 3.5rem;
   list-style-type: none;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    row-gap: 3.5rem;
-  }
-
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   width: 75%;
   padding: 0 3rem;
-  background-color: rgb(var(--secondary));
+  background-color: var(--secondary);
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    row-gap: 3.5rem;
     width: 50%;
   }
 
@@ -121,7 +120,7 @@ const List = styled(({ isOpen, ...props }) => <motion.ul {...props} />)<Toggle>`
   }
 `;
 
-const NavItem = styled(({ isOpen, ...props }) => <motion.li {...props} />)<Toggle>`
+const NavItem = styled(motion.li)`
   font-family: Inter;
   font-weight: 400;
   color: rgb(var(--blue));
@@ -139,11 +138,6 @@ const NavItem = styled(({ isOpen, ...props }) => <motion.li {...props} />)<Toggl
     line-height: 1.75rem;
     padding: 0;
   }
-
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
 `;
 
 const Navbar: React.FC = () => {
@@ -151,9 +145,12 @@ const Navbar: React.FC = () => {
   const menuRef = useClickOutside(isOpen, isClosed);
 
   return (
-    <Header as={motion.header} initial={{ opacity: 0 }}
-    animate={{ opacity: 1, transition: { duration: 0.5 } }}>
-      <Nav isOpen={isOpen}>
+    <Header
+      as={motion.header}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.5 } }}
+    >
+      <Nav $isOpen={isOpen}>
         <Link
           href="#home"
           to="home"
@@ -167,14 +164,9 @@ const Navbar: React.FC = () => {
           <BrandLogo />
         </Link>
         <aside ref={menuRef as React.RefObject<HTMLElement>}>
-          <List
-            isOpen={isOpen}
-            variants={variants}
-            initial={false}
-            animate={isOpen ? "opened" : "closed"}
-          >
+          <List variants={variants} initial={false} animate={isOpen ? "opened" : "closed"}>
             {navLink.map((item: string) => (
-              <NavItem key={item} variants={navItemVariants} isOpen={isOpen} tabIndex={0}>
+              <NavItem key={item} variants={navItemVariants} tabIndex={0}>
                 <Link
                   href={`#${item.toLowerCase()}`}
                   to={item.toLowerCase()}

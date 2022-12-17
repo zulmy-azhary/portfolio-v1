@@ -6,7 +6,6 @@ interface ToggleCtx {
   setOpen: Dispatcher<boolean>;
   isClosed: () => void;
 }
-export type Toggle = Pick<ToggleCtx, "isOpen">;
 
 const ToggleContext = createContext<ToggleCtx>({} as ToggleCtx);
 export const useToggle = (): ToggleCtx => useContext(ToggleContext);

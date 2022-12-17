@@ -1,2 +1,2 @@
-export { default as ToggleProvider, type Toggle, useToggle } from './ToggleContext';
-export { default as ScrollProvider, type Scroll, useScroll } from './ScrollContext';
+export { default as ToggleProvider, useToggle } from './ToggleContext';
+export { default as ScrollProvider, useScroll } from './ScrollContext';

@@ -13,10 +13,10 @@ export default createGlobalStyle`
   :root {
     --bgMain: ${(props) => props.theme.colors.bgMain};
     --bgSecondary: ${(props) => props.theme.colors.bgSecondary};
-    --teal: ${props => props.theme.colors.teal};
+    --teal: ${(props) => props.theme.colors.teal};
     --blue: 191 219 254; //blue-200
-    --primary: 7 7 37; //primary-900
-    --secondary: 10 10 62; //secondary-700
+    --primary: ${(props) => props.theme.colors.primary};
+    --secondary: ${(props) => props.theme.colors.secondary};
     --slate: 100 116 139; //text
     --shadow: ${(props) => props.theme.shadow};
 
@@ -28,8 +28,6 @@ export default createGlobalStyle`
     --laptop: ${(props) => props.theme.breakpoints.laptop};
     --laptopL: ${(props) => props.theme.breakpoints.laptopL};
     --desktop: ${(props) => props.theme.breakpoints.desktop};
-
-    overflow-x: hidden;
   }
 
   * {

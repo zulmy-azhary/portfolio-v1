@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import React, { useState } from "react";
-import { Scroll, useScroll } from "@context";
+import { useScroll } from "@context";
 import styled from "styled-components";
 import {
   Home,
@@ -14,6 +14,10 @@ import {
   Loader,
 } from "@components";
 import { AnimatePresence, motion } from "framer-motion";
+
+type Scroll = {
+  $scroll: boolean;
+};
 
 const Container = styled.main`
   transition-property: all;
@@ -35,7 +39,7 @@ const Wrapper = styled.div<Scroll>`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
-    flex-basis: ${(props) => (props.scroll ? "75%" : "65%")};
+    flex-basis: ${(props) => (props.$scroll ? "75%" : "65%")};
   }
 `;
 
@@ -51,7 +55,7 @@ const ProfileWrapper = styled.div<Scroll>`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
-    flex-basis: ${(props) => (props.scroll ? "25%" : "35%")};
+    flex-basis: ${(props) => (props.$scroll ? "25%" : "35%")};
   }
 `;
 
@@ -90,7 +94,7 @@ const HomePage: NextPage = () => {
           >
             <Navbar />
             <Container>
-              <Wrapper scroll={scroll}>
+              <Wrapper $scroll={scroll}>
                 <Main>
                   <Home />
                   <Biography />
@@ -99,7 +103,7 @@ const HomePage: NextPage = () => {
                 </Main>
                 <Footer />
               </Wrapper>
-              <ProfileWrapper scroll={scroll}>
+              <ProfileWrapper $scroll={scroll}>
                 <Profile />
               </ProfileWrapper>
             </Container>

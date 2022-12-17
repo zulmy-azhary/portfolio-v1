@@ -1,28 +1,11 @@
 import styled from "styled-components";
 import { flexCenter } from "@styles/SharedStyles";
 
-export const Container = styled.section<{ isVisible?: boolean }>`
-  text-align: center;
-  height: fit-content;
-  max-height: max-content;
-  padding: 4rem 0;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    text-align: left;
-    padding: 2.5rem 0;
-  }
-
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
-    text-align: left;
-    padding: 3.25rem 0;
-  }
-`;
-
 export const Card = styled.div`
   ${flexCenter}
   position: relative;
   border-radius: 0.375rem /* 6px */;
-  background-color: rgb(var(--secondary) / 1);
+  background-color: var(--secondary);
   color: rgb(var(--blue) / 0.5);
   transition-duration: 300ms;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);

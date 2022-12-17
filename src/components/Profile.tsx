@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { type Scroll, useScroll } from "@context";
+import { useScroll } from "@context";
 import { socialMedia } from "@data";
 import type { SocialMedia } from "@types";
 import { flexCenter } from "@styles/SharedStyles";
+import { defaultTransition, fadeIn } from "@styles/motionVariants";
 
 const Wrapper = styled.div`
   ${flexCenter}
@@ -85,7 +86,7 @@ const ProfileMainText = styled(ProfileSubText)`
   }
 `;
 
-const SocialMediaIcon = styled.a`
+const SocialMediaIcon = styled(motion.a)`
   line-height: 0;
   color: rgb(var(--blue));
   font-size: 1.5rem;
@@ -113,7 +114,7 @@ const SocialMediaIcon = styled.a`
   }
 `;
 
-const Container = styled.section<Scroll>`
+const Container = styled(motion.section)<{ $scroll: boolean }>`
   ${flexCenter}
   flex-direction: column;
   top: 0;
@@ -147,7 +148,7 @@ const Container = styled.section<Scroll>`
     }
 
     ${SocialMediaIcon} {
-      border: 1px solid var(--teal);
+      border-color: var(--teal);
       color: var(--teal);
     }
   }
@@ -171,11 +172,11 @@ const Container = styled.section<Scroll>`
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
     padding: 0 4%;
     transition-duration: 500ms;
-    width: ${(props) => (props.scroll ? 25 : 35)}%;
+    width: ${(props) => (props.$scroll ? "25%" : "35%")};
   }
 `;
 
-const SocialMediaWrapper = styled.div`
+const SocialMediaWrapper = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -203,12 +204,18 @@ const Profile: React.FC = () => {
   const { scroll } = useScroll();
 
   return (
-    <Container scroll={scroll}>
+    <Container
+      $scroll={scroll}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ ...defaultTransition }}
+    >
       <Wrapper
         as={motion.div}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ ease: "easeInOut", duration: 0.6, delay: 0.3 }}
+        variants={fadeIn}
+        initial="initial"
+        animate="animate"
+        transition={{ ...defaultTransition, delay: 0.6 }}
       >
         <Image src={"/assets/profile-pic.jpg"} alt="Profile" />
         <ProfileDescWrapper>
@@ -216,9 +223,23 @@ const Profile: React.FC = () => {
           <ProfileMainText as={motion.h2}>Zulmy Azhary</ProfileMainText>
         </ProfileDescWrapper>
       </Wrapper>
-      <SocialMediaWrapper>
+      <SocialMediaWrapper
+        variants={fadeIn}
+        initial="initial"
+        animate="animate"
+        transition={{ staggerChildren: 0.125, delayChildren: 0.7 }}
+      >
         {socialMedia.map(({ label, url, Icon }: SocialMedia) => (
-          <SocialMediaIcon key={label} href={url} title={label} target="_blank" rel="noreferrer">
+          <SocialMediaIcon
+            variants={fadeIn}
+            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.2, transition: { duration: 0 } }}
+            key={label}
+            href={url}
+            title={label}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Icon />
           </SocialMediaIcon>
         ))}

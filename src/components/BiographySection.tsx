@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Container, Text, Heading, SubHeading } from "@styles/SharedComponents";
+import { Text, Heading, SubHeading } from "@styles/SharedComponents";
+import { Section } from "@components";
 
 const Content = styled.div`
   display: flex;
@@ -42,7 +43,7 @@ const Label = styled(Main)`
 
 const Biography: React.FC = () => {
   return (
-    <Container id="about">
+    <Section id="about">
       <SubHeading>About Me</SubHeading>
       <Heading>Biography</Heading>
       <Text>
@@ -69,7 +70,7 @@ const Biography: React.FC = () => {
           <p>zulmyazhary32@gmail.com</p>
         </Main>
       </Content> */}
-    </Container>
+    </Section>
   );
 };
 
