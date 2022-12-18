@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
       <Author
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={defaultTransition}
+        transition={{ ...defaultTransition, delay: 0.05 }}
       >
         Created with{" "}
         <FaHeart style={{ display: "inline-block", color: "red", verticalAlign: "middle" }} /> by

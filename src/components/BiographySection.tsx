@@ -46,11 +46,14 @@ const Biography: React.FC = () => {
     <Section id="about">
       <SubHeading>About Me</SubHeading>
       <Heading>Biography</Heading>
-      <Text>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia voluptatum obcaecati sed,
-        corrupti magnam impedit eius ipsum, quisquam expedita, rem consectetur? Deleniti doloribus
-        sed laboriosam vero odio iusto facere at omnis culpa nisi nobis in pariatur ad, a facilis
-        consequuntur dolor voluptates! Rem hic aut nihil amet dignissimos ducimus doloribus!
+      <Text style={{textAlign:"justify"}}>
+        Hi, my name is Zulmy Azhary and I am currently a college student pursuing a bachelor's
+        degree in computer science at Unitama. In my free time, I enjoy learning about new
+        technologies and programming languages and build website projects that can train me to be
+        proficient in the field of Front-End development, as well as staying up to date with the
+        latest trends in the field. I am a hardworking and dedicated college student with a strong
+        passion for computer science, and I am looking forward to a successful career in this
+        exciting and constantly evolving industry.
       </Text>
       {/* <Content>
         <Label>

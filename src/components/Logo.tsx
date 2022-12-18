@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { defaultTransition, fadeIn } from "@styles/motionVariants";
+import { defaultTransition } from "@styles/motionVariants";
 
 const Svg = styled(motion.svg)`
   width: 36px;

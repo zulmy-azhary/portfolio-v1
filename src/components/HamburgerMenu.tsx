@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useToggle } from "@context";
 import { motion } from "framer-motion";
-import { defaultTransition, fadeIn } from "@styles/motionVariants";
+import { defaultTransition } from "@styles/motionVariants";
 
 type Toggle = {
   $isOpen: boolean;
