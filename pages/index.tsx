@@ -14,6 +14,7 @@ import {
   Loader,
 } from "@components";
 import { AnimatePresence, motion } from "framer-motion";
+import { comicNeue } from "@styles/GlobalStyles";
 
 type Scroll = {
   $scroll: boolean;
@@ -91,6 +92,7 @@ const HomePage: NextPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 0.3 }}
+            className={comicNeue.variable}
           >
             <Navbar />
             <Container>

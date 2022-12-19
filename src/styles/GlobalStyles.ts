@@ -35,7 +35,6 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     letter-spacing: 0.05em;
-    font-family: "Comic Neue", Inter, "Helvetica", Arial, sans-serif;
 
     /* Focus */
     &:focus-visible {
@@ -55,7 +54,7 @@ export default createGlobalStyle`
   body {
     overflow-x: hidden;
     background-color: var(--bgMain);
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: "Comic Neue", Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;

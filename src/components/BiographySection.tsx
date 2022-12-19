@@ -37,6 +37,10 @@ const Main = styled.div`
   }
 `;
 
+const Paragraph = styled(Text)`
+  text-align: justify;
+`;
+
 const Label = styled(Main)`
   text-transform: uppercase;
 `;
@@ -46,7 +50,7 @@ const Biography: React.FC = () => {
     <Section id="about">
       <SubHeading>About Me</SubHeading>
       <Heading>Biography</Heading>
-      <Text style={{textAlign:"justify"}}>
+      <Paragraph>
         Hi, my name is Zulmy Azhary and I am currently a college student pursuing a bachelor's
         degree in computer science at Unitama. In my free time, I enjoy learning about new
         technologies and programming languages and build website projects that can train me to be
@@ -54,7 +58,7 @@ const Biography: React.FC = () => {
         latest trends in the field. I am a hardworking and dedicated college student with a strong
         passion for computer science, and I am looking forward to a successful career in this
         exciting and constantly evolving industry.
-      </Text>
+      </Paragraph>
       {/* <Content>
         <Label>
           <p>Name</p>

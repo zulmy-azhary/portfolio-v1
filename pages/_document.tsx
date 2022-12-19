@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en" className={comicNeue.variable}>
+      <Html lang="en" className={comicNeue.className}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/favicon.ico" />
