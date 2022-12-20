@@ -12,6 +12,9 @@ export { default as Technology } from "./TechnologySection";
 
 // UI
 export { default as ProjectItem } from "./ProjectItem";
+export { default as ProjectContent } from "./ProjectContent";
+export { default as ProjectImage } from "./ProjectImage";
+export { default as ProjectLink } from "./ProjectLink";
 export { default as Logo } from "./Logo";
 export { default as HamburgerMenu } from "./HamburgerMenu";
 export { default as TechTabList } from "./TechTabList";

@@ -4,5 +4,6 @@ export const fadeIn = {
 };
 
 export const defaultTransition = {
-  ease: "easeInOut", duration: 0.6
-}
+  ease: "easeInOut",
+  duration: 0.6,
+};

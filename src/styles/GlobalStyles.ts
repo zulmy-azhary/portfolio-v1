@@ -11,13 +11,20 @@ export const comicNeue = ComicNeue({
 
 export default createGlobalStyle`
   :root {
+    /* Colors */
+    --skyHSL: 213 96.9% 87.3%;
+
     --bgMain: ${(props) => props.theme.colors.bgMain};
     --bgSecondary: ${(props) => props.theme.colors.bgSecondary};
     --teal: ${(props) => props.theme.colors.teal};
-    --blue: 191 219 254; //blue-200
     --primary: ${(props) => props.theme.colors.primary};
     --secondary: ${(props) => props.theme.colors.secondary};
-    --slate: 100 116 139; //text
+    --slate: ${(props) => props.theme.colors.slate};
+    --sky: hsl(var(--skyHSL));
+    --skyMuted: hsla(var(--skyHSL) / 0.75);
+    --skyText: hsla(var(--skyHSL) / 0.5);
+
+    /* Shadow */
     --shadow: ${(props) => props.theme.shadow};
 
     /* Breakpoints */
@@ -47,16 +54,15 @@ export default createGlobalStyle`
   }
 
   ::selection {
-    background-color: rgb(var(--slate) / 0.3);
+    background-color: var(--slate);
     color: var(--teal);
   }
 
   body {
     overflow-x: hidden;
     background-color: var(--bgMain);
-    font-family: "Comic Neue", Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -66,7 +72,7 @@ export default createGlobalStyle`
   }
 
   h1 {
-    color: rgb(var(--blue));
+    color: var(--sky);
   }
 
   h2 {
@@ -75,7 +81,7 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: rgb(var(--blue));
+    color: var(--sky);
     transition: 0.2s ease-in-out;
 
     &:hover {
@@ -96,7 +102,7 @@ export default createGlobalStyle`
     background-color: var(--teal);
 
     &:hover {
-      background-color: rgb(var(--blue));
+      background-color: var(--sky);
     }
   }
 `;

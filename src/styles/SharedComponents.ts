@@ -6,7 +6,7 @@ export const Card = styled.div`
   position: relative;
   border-radius: 0.375rem /* 6px */;
   background-color: var(--secondary);
-  color: rgb(var(--blue) / 0.5);
+  color: var(--skyText);
   transition-duration: 300ms;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 
@@ -58,7 +58,7 @@ export const SubHeading = styled.h2`
 export const Description = styled.p`
   font-family: var(--comicNeue);
   font-size: 0.9rem;
-  color: rgb(var(--blue) / 0.5);
+  color: var(--skyText);
   font-weight: 500;
   text-align: center;
   margin: 1.5rem 0 2rem;
@@ -75,7 +75,7 @@ export const Description = styled.p`
 `;
 
 export const Text = styled.p`
-  color: rgb(var(--blue) / 0.5);
+  color: var(--skyText);
   font-family: Inter;
   letter-spacing: 1px;
   line-height: 1.75rem;

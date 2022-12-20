@@ -7,7 +7,7 @@ import { defaultTransition } from "@styles/motionVariants";
 const Credit = styled(motion.p)`
   font-family: var(--comicNeue);
   font-size: 0.875rem;
-  color: rgb(var(--blue) / 0.75);
+  color: var(--skyMuted);
   transition: color 0.5s;
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
@@ -24,7 +24,7 @@ const Wrapper = styled(motion.footer)`
   position: relative;
   border-top-width: 1px;
   border-top-style: solid;
-  border-color: rgb(var(--blue) / 0.75);
+  border-color: var(--skyMuted);
   text-align: center;
   padding: 1.5rem 0;
 

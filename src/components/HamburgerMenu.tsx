@@ -56,7 +56,7 @@ const HamburgerMenu: React.FC<Props> = ({ onClick }) => {
       onClick={onClick}
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ ...defaultTransition, delay: 0.2 }}
+      transition={{ ...defaultTransition, delay: 0.3 }}
     >
       <TopLine $isOpen={isOpen} />
       <CenterLine $isOpen={isOpen} />

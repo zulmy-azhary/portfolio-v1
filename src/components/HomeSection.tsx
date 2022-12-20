@@ -11,6 +11,7 @@ const Container = styled(motion.section)`
   flex-direction: column;
   text-align: center;
   margin: 2rem 0;
+  position: relative;
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     min-height: 100vh;
@@ -20,18 +21,28 @@ const Container = styled(motion.section)`
 `;
 
 const HomeHeading = styled(Heading)`
+  /* background: linear-gradient(to right bottom, #5817a7, #137eaf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  font-size: 1.75rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    font-size: 2rem;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 `;
 
 const Description = styled.p`
   font-family: var(--comicNeue);
-  color: rgb(var(--blue) / 0.5);
+  color: var(--skyText);
   line-height: 2;
   font-weight: 500;
-  transition-duration: 300ms;
   margin-bottom: 1.75rem;
+  font-size: 1.1rem;
+  transition: color 0.3s;
 
   &:hover {
     color: var(--teal);
@@ -58,9 +69,25 @@ const Home: React.FC = () => {
       animate="animate"
       transition={transition}
     >
-      <SubHeading>Introduction</SubHeading>
-      <HomeHeading>Front End Developer</HomeHeading>
-      <Description>
+      <SubHeading
+        as={motion.h2}
+        variants={fadeIn}
+        transition={{ ...defaultTransition, delay: 0.6 }}
+      >
+        Introduction
+      </SubHeading>
+      <HomeHeading
+        as={motion.h1}
+        variants={fadeIn}
+        transition={{ ...defaultTransition, delay: 0.7 }}
+      >
+        Front End Developer
+      </HomeHeading>
+      <Description
+        as={motion.p}
+        variants={fadeIn}
+        transition={{ ...defaultTransition, delay: 0.8 }}
+      >
         Design, building, and maintaining interactive and responsive websites especially for modern
         websites.
       </Description>
@@ -70,7 +97,7 @@ const Home: React.FC = () => {
 
 const transition = {
   ...defaultTransition,
-  delay: 0.4,
+  delay: 0.5,
 };
 
 export default Home;

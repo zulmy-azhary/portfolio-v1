@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   &:after {
     content: "";
     position: absolute;
-    border: 1px solid rgb(var(--blue) / 0.75);
+    border: 1px solid var(--skyMuted);
     transition-duration: 300ms;
     z-index: -1;
   }
@@ -70,7 +70,7 @@ const Image = styled.img`
 const ProfileSubText = styled.p`
   font-family: var(--comicNeue);
   font-weight: 500;
-  color: rgb(var(--blue) / 0.75);
+  color: var(--skyMuted);
   transition-duration: 300ms;
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptopL}) {
@@ -88,10 +88,9 @@ const ProfileMainText = styled(ProfileSubText)`
 
 const SocialMediaIcon = styled(motion.a)`
   line-height: 0;
-  color: rgb(var(--blue));
   font-size: 1.5rem;
-  color: rgb(var(--blue) / 0.75);
-  border: 1px solid rgb(var(--blue) / 0.75);
+  color: var(--skyMuted);
+  border: 1px solid var(--skyMuted);
   padding: 0.3rem;
   border-radius: 3px;
   cursor: pointer;
@@ -122,7 +121,7 @@ const Container = styled(motion.section)<{ $scroll: boolean }>`
   right: 0;
   margin: 0 auto;
   width: max-content;
-  border: 0 solid rgb(var(--blue) / 0.75);
+  border: 0 solid var(--skyMuted);
   padding: 7rem 0;
 
   &:hover {
@@ -144,7 +143,7 @@ const Container = styled(motion.section)<{ $scroll: boolean }>`
     }
 
     ${ProfileMainText} {
-      color: rgb(var(--blue));
+      color: var(--sky);
     }
 
     ${SocialMediaIcon} {
@@ -159,7 +158,7 @@ const Container = styled(motion.section)<{ $scroll: boolean }>`
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     border-left-width: 1px;
-    border-color: rgb(var(--blue) / 0.75);
+    border-color: var(--skyMuted);
     position: fixed;
     padding: 0 3rem;
     width: 30%;
@@ -208,14 +207,14 @@ const Profile: React.FC = () => {
       $scroll={scroll}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ ...defaultTransition }}
+      transition={{ ...defaultTransition, delay: 0.9 }}
     >
       <Wrapper
         as={motion.div}
         variants={fadeIn}
         initial="initial"
         animate="animate"
-        transition={{ ...defaultTransition, delay: 0.6 }}
+        transition={{ ...defaultTransition, delay: 1.1 }}
       >
         <Image src={"/assets/profile-pic.jpg"} alt="Profile" />
         <ProfileDescWrapper>
@@ -227,7 +226,7 @@ const Profile: React.FC = () => {
         variants={fadeIn}
         initial="initial"
         animate="animate"
-        transition={{ staggerChildren: 0.125, delayChildren: 0.7 }}
+        transition={{ staggerChildren: 0.125, delayChildren: 1.3 }}
       >
         {socialMedia.map(({ label, url, Icon }: SocialMedia) => (
           <SocialMediaIcon
